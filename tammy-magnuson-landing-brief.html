@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Brief · Tammy Magnuson · meribuilds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EF;
+    --paper-2:#FFFFFF;
+    --ink:#171512;
+    --ink-soft:#4A453D;
+    --line:#E0DCD2;
+    --line-strong:#CFC9BC;
+    /* meribuilds system accent (blue = spec / build) */
+    --sys:#1E4FD8;
+    --sys-wash:#EAEFFC;
+    /* client brand direction (Building Brave Riders: teal + gold + cream) */
+    --teal:#1C6E79;
+    --teal-lt:#3E97A2;
+    --gold:#B0844A;
+    --cream:#ECE5D6;
+    --teal-ink:#123A40;
+    --client-wash:#E7EFEE;
+    /* status */
+    --ok:#2F7A4E;
+    --ok-wash:#E7F1EA;
+    --wait:#A9691A;
+    --wait-wash:#F6EEDF;
+    --radius:14px;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:40px 24px 96px;}
+
+  .eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sys);}
+
+  /* ---------- Masthead ---------- */
+  .masthead{border:1.5px solid var(--ink);border-radius:var(--radius);background:var(--paper-2);padding:26px 28px;overflow:hidden;}
+  .brandline{display:flex;align-items:center;gap:10px;font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.06em;color:var(--ink-soft);}
+  .brandline b{color:var(--ink);font-weight:700;}
+  .brandline .dot{width:6px;height:6px;border-radius:50%;background:var(--sys);display:inline-block;}
+  .doc-title{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(30px,6vw,50px);line-height:1.02;letter-spacing:-.01em;margin:14px 0 4px;}
+  .doc-sub{font-family:"Fraunces",serif;font-style:italic;font-weight:400;font-size:clamp(18px,3.4vw,23px);color:var(--ink-soft);margin:0;}
+  .meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:22px;border-top:1px solid var(--line);}
+  .meta-grid div{padding:12px 14px 4px 0;border-right:1px solid var(--line);}
+  .meta-grid div:last-child{border-right:none;padding-right:0;}
+  .meta-k{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+  .meta-v{font-size:14px;font-weight:600;margin-top:3px;}
+
+  /* ---------- Read-first callout ---------- */
+  .callout{
+    margin-top:22px;border-radius:var(--radius);overflow:hidden;
+    background:var(--teal-ink);color:var(--cream);
+    display:grid;grid-template-columns:auto 1fr;
+  }
+  .callout .rail{background:var(--gold);width:8px;}
+  .callout .inner{padding:22px 24px;}
+  .callout .tag{font-family:"Space Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .callout h3{font-family:"Fraunces",serif;font-weight:600;font-size:21px;line-height:1.2;margin:0 0 8px;color:#fff;}
+  .callout p{margin:0 0 10px;color:#DCE4E2;font-size:15px;}
+  .callout p:last-child{margin-bottom:0;}
+  .callout b{color:#fff;}
+
+  /* ---------- Section ---------- */
+  section{margin-top:44px;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:10px;border-bottom:1.5px solid var(--ink);margin-bottom:20px;}
+  .sec-num{font-family:"Space Mono",monospace;font-weight:700;font-size:13px;color:var(--sys);letter-spacing:.05em;}
+  .sec-title{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(20px,3.6vw,26px);letter-spacing:-.01em;margin:0;}
+  .sec-title small{display:block;font-family:"Inter",sans-serif;font-weight:400;font-size:13.5px;color:var(--ink-soft);letter-spacing:0;margin-top:2px;}
+
+  p{margin:0 0 14px;}
+  .lead{font-size:17px;}
+  .muted{color:var(--ink-soft);}
+
+  .card{background:var(--paper-2);border:1px solid var(--line-strong);border-radius:var(--radius);padding:20px 22px;}
+  .stack > * + *{margin-top:14px;}
+
+  .field{margin-bottom:18px;}
+  .field:last-child{margin-bottom:0;}
+  .flabel{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sys);margin-bottom:5px;}
+
+  /* Offer */
+  .offer{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .offer .card{padding:18px 20px;}
+  .offer h4{font-family:"Fraunces",serif;font-weight:600;font-size:17px;margin:0 0 6px;}
+  .offer .tag{display:inline-block;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);border:1px solid var(--line-strong);border-radius:20px;padding:2px 9px;margin-bottom:9px;}
+  .offer p{font-size:13.5px;margin:0;color:var(--ink-soft);}
+
+  ul.clean{list-style:none;padding:0;margin:0;}
+  ul.clean li{position:relative;padding-left:26px;margin-bottom:10px;font-size:15px;}
+  ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:2px;background:var(--sys);}
+  ul.clean.teal li::before{background:var(--teal);}
+
+  /* Method flow */
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:4px 0 2px;}
+  .flow span{font-family:"Fraunces",serif;font-weight:600;font-size:16px;color:var(--teal);}
+  .flow em{color:var(--gold);font-style:normal;font-weight:700;}
+
+  /* Pillars */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden;}
+  .pillars .p{background:var(--paper-2);padding:16px 16px;}
+  .pillars .p b{font-family:"Fraunces",serif;font-weight:600;font-size:15px;display:block;}
+  .pillars .p span{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);}
+
+  blockquote{margin:0;padding:16px 20px;border-left:3px solid var(--teal);background:var(--client-wash);border-radius:0 10px 10px 0;font-family:"Fraunces",serif;font-size:16px;font-style:italic;}
+
+  /* Copy blocks */
+  .copyblock{background:var(--teal-ink);color:var(--cream);border-radius:var(--radius);padding:20px 22px;font-size:15px;}
+  .copyblock h4{font-family:"Space Mono",monospace;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .copyblock .hero-h{font-family:"Fraunces",serif;font-weight:600;font-size:23px;line-height:1.14;margin:0 0 8px;color:#fff;}
+  .copyblock p{color:#D6DEDC;margin:0 0 14px;}
+  .copyblock p:last-child{margin-bottom:0;}
+  .copyblock .alt{font-size:13px;color:#8FA6A3;font-family:"Space Mono",monospace;}
+
+  /* Swatches */
+  .swatches{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;}
+  .sw{border:1px solid var(--line-strong);border-radius:10px;overflow:hidden;width:120px;}
+  .sw .chip{height:52px;}
+  .sw .info{padding:7px 10px;font-family:"Space Mono",monospace;font-size:10.5px;color:var(--ink-soft);}
+  .sw .info b{display:block;color:var(--ink);font-size:11px;letter-spacing:.03em;}
+
+  .status{display:inline-flex;align-items:center;gap:6px;font-family:"Space Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:20px;}
+  .status::before{content:"";width:7px;height:7px;border-radius:50%;}
+  .s-ok{background:var(--ok-wash);color:var(--ok);}
+  .s-ok::before{background:var(--ok);}
+  .s-wait{background:var(--wait-wash);color:var(--wait);}
+  .s-wait::before{background:var(--wait);}
+
+  .punch{list-style:none;padding:0;margin:0;}
+  .punch li{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--line);}
+  .punch li:last-child{border-bottom:none;}
+  .punch .box{flex:0 0 auto;width:20px;height:20px;border:1.5px solid var(--wait);border-radius:5px;margin-top:2px;}
+  .punch .body b{display:block;font-size:15px;margin-bottom:2px;}
+  .punch .body span{font-size:13.5px;color:var(--ink-soft);}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
+  a{color:var(--sys);text-decoration:none;border-bottom:1px solid var(--sys-wash);}
+  a:hover{border-bottom-color:var(--sys);}
+
+  .foot{margin-top:56px;padding-top:20px;border-top:1.5px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:"Space Mono",monospace;font-size:11.5px;color:var(--ink-soft);letter-spacing:.04em;}
+
+  @media (max-width:680px){
+    .meta-grid{grid-template-columns:1fr 1fr;}
+    .meta-grid div{border-bottom:1px solid var(--line);padding-right:14px;}
+    .meta-grid div:nth-child(2n){border-right:none;}
+    .offer{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:1fr 1fr;}
+    .two{grid-template-columns:1fr;}
+    .callout{grid-template-columns:1fr;}
+    .callout .rail{width:100%;height:8px;}
+  }
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto;}}
+  @media print{
+    body{background:#fff;}
+    .copyblock,.callout{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="brandline"><span class="dot"></span><b>meribuilds</b> &nbsp;·&nbsp; AI workflows without the complication</div>
+    <h1 class="doc-title">Landing Page Build Brief</h1>
+    <p class="doc-sub">Tammy Magnuson &middot; Building Brave Riders, confidence coaching for fearful riders</p>
+    <div class="meta-grid">
+      <div><div class="meta-k">Prepared for</div><div class="meta-v">Web Dev</div></div>
+      <div><div class="meta-k">Date</div><div class="meta-v">Jul 7, 2026</div></div>
+      <div><div class="meta-k">Deliverable</div><div class="meta-v">1 landing page</div></div>
+      <div><div class="meta-k">Status</div><div class="meta-v">Re-point build · 6 open items</div></div>
+    </div>
+
+    <div class="callout">
+      <div class="rail"></div>
+      <div class="inner">
+        <div class="tag">Read this first</div>
+        <h3>We're re-pointing a proven page, not building from scratch.</h3>
+        <p>Tammy's live Neuro Reset site sells <b>weight and dieting</b> transformation. Her strongest demand right now is <b>fear of horse riding</b>. Same brain science, same voice, different target.</p>
+        <p>This page keeps her proven Neuro Reset mechanism (memory reconsolidation) and re-aims it at riders who've lost their nerve. The poster she shared is the visual north star: watercolor teal, gold, and cream, equestrian and grounded. <b>Do not copy the dieting copy across.</b> Use the re-pointed copy in Section 08.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- 01 POSITIONING -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">The page in one line<small>What the visitor should feel in the first three seconds.</small></h2>
+    </div>
+    <p class="lead">Tammy helps riders who've lost their nerve get back in the saddle, using neuroscience instead of grit.</p>
+    <p class="muted">The hook is relief, not pressure. Her rider isn't weak or lacking courage. Her brain linked riding to danger after a fall or a scare, and it's been protecting her ever since. The page names that, then offers a calmer way through: rewire the memory, ride from trust.</p>
+  </section>
+
+  <!-- 02 GOAL + CTA -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Page goal &amp; call to action<small>One job. This is a high-touch, quote-based offer.</small></h2>
+    </div>
+    <div class="card stack">
+      <div class="field">
+        <div class="flabel">Single job</div>
+        Get the right rider to <strong>book a call</strong>. Her work is premium and tailored, so there's no public price and no checkout. The call is the conversion.
+      </div>
+      <div class="two">
+        <div class="field" style="margin:0;">
+          <div class="flabel">Primary button</div>
+          <strong>Book a call</strong> &nbsp;<span class="status s-ok">link exists</span>
+          <div class="muted" style="font-size:13.5px;margin-top:6px;">Use her existing Wix booking page: <a href="https://coachtammymagnuson.wixsite.com/neuro-reset/book-online">/book-online</a>. Confirm it's the right calendar for riding-fear calls.</div>
+        </div>
+        <div class="field" style="margin:0;">
+          <div class="flabel">Secondary</div>
+          <strong>Call for a tailored quote</strong> &nbsp;<span class="status s-ok">on-brand</span>
+          <div class="muted" style="font-size:13.5px;margin-top:6px;">Matches her existing "Call Now for Tailored Quote" language. Keeps pricing off the page by design.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 AUDIENCE + PROBLEM -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Who it's for &amp; the problem<small>Feeds the pain section above the method.</small></h2>
+    </div>
+    <div class="card stack">
+      <div class="field">
+        <div class="flabel">Dream client</div>
+        A woman who used to love riding and now freezes at the mounting block. Maybe she had a fall, a bolt, or a bad scare. Maybe the nerves crept in with age. She still loves horses. She just can't get her body to trust the saddle again.
+      </div>
+      <div class="field">
+        <div class="flabel">The problem in their words</div>
+        <blockquote>"Everyone keeps telling me to just get back on. I try, and my body won't let me. I feel ridiculous being scared of something I used to do without thinking."</blockquote>
+      </div>
+      <div class="field" style="margin:0;">
+        <div class="flabel">What they've tried</div>
+        Pushing through it, groundwork drills, "confidence" clinics, calming supplements, or quietly stepping back from riding altogether. It manages the fear at best. It never clears it.
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 METHOD -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">The method<small>Her proven mechanism, re-pointed at fear. This is the heart of the page.</small></h2>
+    </div>
+    <div class="card stack">
+      <div class="field">
+        <div class="flabel">Core belief</div>
+        You're not broken, and it's not a nerve problem. The fear is a specific memory your brain linked to danger, and it's been honoring that link below your awareness ever since.
+      </div>
+      <div class="field">
+        <div class="flabel">Why "just get back on" fails</div>
+        Willpower, exposure, and pep talks don't reach the level where the memory lives. That's why the fear keeps winning even when the logical part of you knows the horse is safe.
+      </div>
+      <div class="field">
+        <div class="flabel">The Neuro Reset shift</div>
+        Memory reconsolidation unlinks the fear response and relinks calm and trust in the saddle. Not managed. Cleared.
+      </div>
+      <div class="field" style="margin:0;">
+        <div class="flabel">Her signature chain</div>
+        <div class="flow"><span>Memories</span><em>→</em><span>Thoughts</span><em>→</em><span>Feelings</span><em>→</em><span>Actions</span><em>→</em><span>Results</span></div>
+        <div class="muted" style="font-size:13.5px;margin-top:6px;">Keep this exact chain from her existing brand. It's already a strong visual and it maps perfectly to riding.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 OFFER -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">The offer<small>Her three existing tiers. Confirm they re-point to riding.</small></h2>
+    </div>
+    <div class="offer">
+      <div class="card">
+        <span class="tag">Intensive</span>
+        <h4>Solace</h4>
+        <p>"I come to you." A weekend together to find and rewire the specific memories driving the fear.</p>
+      </div>
+      <div class="card">
+        <span class="tag">6 months</span>
+        <h4>Vision Implementation</h4>
+        <p>Self-curated 1:1 coaching to rewire below conscious awareness and ride from vision, not force.</p>
+      </div>
+      <div class="card">
+        <span class="tag">12 months</span>
+        <h4>Bespoke Path</h4>
+        <p>A full curated experience for high-achieving women, including a 1:1 weekend and on-demand coaching.</p>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:16px;font-size:14px;"><span class="status s-wait">confirm scope</span> &nbsp; These tiers are written for weight clients on the live site. Confirm with Tammy whether the riding-fear page uses the same three tiers re-pointed, or a distinct entry offer for riders. All stay quote-based.</p>
+  </section>
+
+  <!-- 06 PROOF -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">Proof &amp; credibility<small>Her pillars carry trust. The testimonial needs a swap.</small></h2>
+    </div>
+    <div class="pillars">
+      <div class="p"><span>01</span><b>Neuroscience Mindset</b></div>
+      <div class="p"><span>02</span><b>Horse Healing Connection</b></div>
+      <div class="p"><span>03</span><b>Emotional Reset</b></div>
+      <div class="p"><span>04</span><b>Strategy &amp; Action</b></div>
+      <div class="p"><span>05</span><b>Vision &amp; Growth</b></div>
+      <div class="p"><span>06</span><b>Freedom &amp; Legacy</b></div>
+    </div>
+    <div class="card" style="margin-top:16px;padding:16px 18px;">
+      <div class="flabel">Testimonial</div>
+      <p style="margin:0;font-size:14px;" class="muted">Her one strong testimonial is framed around food ("not thinking about food at all"). <span class="status s-wait">need a riding quote</span> Ask for one rider testimonial about getting back in the saddle. Until then, lead the proof section with the pillars and her method, not a mismatched quote.</p>
+    </div>
+  </section>
+
+  <!-- 07 BRAND / VIBE -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2 class="sec-title">Brand direction &amp; vibe<small>The poster is the mood board. Build to this feeling.</small></h2>
+    </div>
+    <div class="card stack">
+      <div class="field">
+        <div class="flabel">The feeling</div>
+        Grounded, warm, and quietly powerful. Watercolor textures, natural light, horses and open landscape. Science meets soul. Premium without being cold. Think "capable, calm mentor," not "hype coach."
+      </div>
+      <div class="field">
+        <div class="flabel">Palette · from the poster</div>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#1C6E79;"></div><div class="info"><b>#1C6E79</b>Deep teal</div></div>
+          <div class="sw"><div class="chip" style="background:#3E97A2;"></div><div class="info"><b>#3E97A2</b>Teal accent</div></div>
+          <div class="sw"><div class="chip" style="background:#B0844A;"></div><div class="info"><b>#B0844A</b>Gold / bronze</div></div>
+          <div class="sw"><div class="chip" style="background:#ECE5D6;"></div><div class="info"><b>#ECE5D6</b>Cream / paper</div></div>
+          <div class="sw"><div class="chip" style="background:#241F1A;"></div><div class="info"><b>#241F1A</b>Ink</div></div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="flabel">Type feel</div>
+        Elegant serif for headlines (all-caps for names, like the poster), a flowing script accent for signature lines ("Building Brave Riders," "Tammy"), clean sans for body. Don't overuse the script.
+      </div>
+      <div class="field">
+        <div class="flabel">Brand lines to use</div>
+        <ul class="clean teal" style="margin-top:4px;">
+          <li>"Building Brave Riders" (page brand name)</li>
+          <li>"Vision. Healing. Action. Results."</li>
+          <li>"Science-backed. Soul-driven. Results-focused."</li>
+          <li>"No BS coaching. Real tools. Real transformation. Let's build your brave."</li>
+        </ul>
+      </div>
+      <div class="field" style="margin:0;">
+        <div class="flabel">Name decision · needs a confirm</div>
+        <p style="margin:0;font-size:14px;" class="muted"><span class="status s-wait">confirm</span> Live site is "Neuro Reset." Poster and the converting audience are "Building Brave Riders." Recommendation: lead the page as <strong>Building Brave Riders</strong>, with <strong>Neuro Reset</strong> named as the method inside. Confirm with Tammy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 DRAFT COPY -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">08</span>
+      <h2 class="sec-title">Ready-to-use copy<small>Draft, re-pointed to riding, in her voice. Drop-in ready.</small></h2>
+    </div>
+    <div class="copyblock">
+      <h4>Hero</h4>
+      <div class="hero-h">You're not a nervous rider. Your brain is protecting you from a memory.</div>
+      <p>Get back in the saddle without white-knuckling it. Neuro Reset uses memory reconsolidation to unlink the fear and relink trust, so you ride from calm, not force.</p>
+      <p class="alt">alt: "You used to ride without thinking. You can again. This isn't willpower. It's neuroscience."</p>
+    </div>
+    <div class="two" style="margin-top:16px;">
+      <div class="copyblock">
+        <h4>Method lead-in</h4>
+        <div class="hero-h" style="font-size:20px;">Right effort. Wrong direction.</div>
+        <p>Pushing through fear never clears it. We work at the level where the memory actually lives, and rewire it at the source.</p>
+      </div>
+      <div class="copyblock">
+        <h4>CTA band</h4>
+        <div class="hero-h" style="font-size:20px;">Let's build your brave.</div>
+        <p>Book a call and we'll map the memory that's keeping you out of the saddle, and the path back in.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 ASSETS -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">09</span>
+      <h2 class="sec-title">Assets, links &amp; setup<small>What we have and what to verify.</small></h2>
+    </div>
+    <div class="two">
+      <div class="card">
+        <div class="flabel">Links to include</div>
+        <ul class="clean" style="margin-top:4px;">
+          <li>Booking: <a href="https://coachtammymagnuson.wixsite.com/neuro-reset/book-online">/book-online</a></li>
+          <li><a href="http://www.instagram.com/coachtammymagnuson">Instagram</a></li>
+          <li><a href="http://www.facebook.com/tammyamagnuson">Facebook</a></li>
+          <li><a href="http://www.linkedin.com/in/empowering">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="flabel">Setup &amp; notes</div>
+        <ul class="clean" style="margin-top:4px;">
+          <li>Location: Glenwood City, WI, USA.</li>
+          <li>Email on site reads <strong>coachtammygmanuson@gmail.com</strong>, likely a typo for <strong>magnuson</strong>. Verify before publishing.</li>
+          <li>Currently on a Wix subdomain. Confirm where this page should live.</li>
+          <li>Photos: the poster is a composite. Need clean individual horse and rider shots.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 PUNCH LIST -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">10</span>
+      <h2 class="sec-title">Open items before launch<small>Chase these with Tammy. The build can start now.</small></h2>
+    </div>
+    <ul class="punch">
+      <li><span class="box"></span><span class="body"><b>Offer scope</b><span>Confirm the three tiers re-point to riding, or define a distinct riding-fear offer.</span></span></li>
+      <li><span class="box"></span><span class="body"><b>Rider testimonial</b><span>Get one quote about a client getting back in the saddle. Current testimonial is food-framed.</span></span></li>
+      <li><span class="box"></span><span class="body"><b>Page name</b><span>Confirm "Building Brave Riders" as the lead brand, with Neuro Reset as the method.</span></span></li>
+      <li><span class="box"></span><span class="body"><b>Booking calendar</b><span>Confirm /book-online is the right calendar for riding-fear discovery calls.</span></span></li>
+      <li><span class="box"></span><span class="body"><b>Email verification</b><span>Confirm the correct contact address (magnuson vs the "gmanuson" typo on the site).</span></span></li>
+      <li><span class="box"></span><span class="body"><b>Real photography</b><span>Source clean horse and rider images. The poster is a composite, not usable as page assets.</span></span></li>
+    </ul>
+  </section>
+
+  <div class="foot">
+    <span>meribuilds · build brief</span>
+    <span>Tammy Magnuson · Building Brave Riders</span>
+    <span>v1 · Jul 7 2026</span>
+  </div>
+
+</div>
+</body>
+</html>

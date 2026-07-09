@@ -1,19 +1,27 @@
-import { Button } from "@/components/ui/button"
+import { GsapProvider } from "@/components/site/gsap-provider"
+import { SiteNav } from "@/components/site/site-nav"
+import { Hero } from "@/components/site/hero"
+import { Knot } from "@/components/site/knot"
+import { Method } from "@/components/site/method"
+import { Offer } from "@/components/site/offer"
+import { Proof } from "@/components/site/proof"
+import { CtaBand } from "@/components/site/cta-band"
+import { SiteFooter } from "@/components/site/site-footer"
 
 export default function Page() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
+    <>
+      <GsapProvider />
+      <SiteNav />
+      <main>
+        <Hero />
+        <Knot />
+        <Method />
+        <Offer />
+        <Proof />
+        <CtaBand />
+      </main>
+      <SiteFooter />
+    </>
   )
 }
