@@ -1,6 +1,6 @@
 import { BookCall, TailoredQuote } from "@/components/site/cta"
 import { Reveal } from "@/components/site/reveal"
-import { Horseshoe, ReinSynapse } from "@/components/site/motifs"
+import { Horseshoe } from "@/components/site/motifs"
 
 export function CtaBand() {
   return (
