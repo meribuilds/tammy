@@ -15,7 +15,6 @@ const useIso = typeof window !== "undefined" ? useLayoutEffect : useEffect
  * Hooks it drives:
  *   [data-animate]   — scroll-reveal (fade + lift), staggered per section
  *   [data-reins]     — the signature Memories→…→Results chain draws in
- *   [data-magnetic]  — buttons pull gently toward the cursor
  *   [data-float]     — ambient float (hero portrait)
  *   [data-parallax]  — slow parallax drift on scroll (photo slots)
  *   [data-nav]       — nav condenses after leaving the hero
@@ -59,13 +58,17 @@ export function GsapProvider() {
         })
       })
 
-      // --- signature chain draws left→right ---
+      // --- signature chain draws through, node by node ---
+      // Horizontal on desktop (draw left→right), vertical on mobile (draw down).
       const reins = document.querySelector<HTMLElement>("[data-reins]")
       if (reins) {
+        const horizontal = matchMedia("(min-width: 640px)").matches
+        const drawAxis = horizontal ? "scaleX" : "scaleY"
+        const origin = horizontal ? "left center" : "center top"
         const nodes = reins.querySelectorAll(".reins__node")
         const links = reins.querySelectorAll(".reins__link")
         gsap.set(nodes, { opacity: 0, y: 8 })
-        gsap.set(links, { scaleX: 0, transformOrigin: "left center" })
+        gsap.set(links, { [drawAxis]: 0, transformOrigin: origin })
         const tl = gsap.timeline({
           scrollTrigger: { trigger: reins, start: "top 78%", once: true },
         })
@@ -74,28 +77,11 @@ export function GsapProvider() {
           if (links[i])
             tl.to(
               links[i],
-              { scaleX: 1, duration: 0.28, ease: "none" },
+              { [drawAxis]: 1, duration: 0.28, ease: "none" },
               i * 0.28 + 0.18
             )
         })
       }
-
-      // --- magnetic buttons ---
-      gsap.utils.toArray<HTMLElement>("[data-magnetic]").forEach((el) => {
-        const xTo = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3" })
-        const yTo = gsap.quickTo(el, "y", { duration: 0.4, ease: "power3" })
-        const move = (e: MouseEvent) => {
-          const r = el.getBoundingClientRect()
-          xTo((e.clientX - (r.left + r.width / 2)) * 0.28)
-          yTo((e.clientY - (r.top + r.height / 2)) * 0.35)
-        }
-        const reset = () => {
-          xTo(0)
-          yTo(0)
-        }
-        el.addEventListener("mousemove", move)
-        el.addEventListener("mouseleave", reset)
-      })
 
       // --- ambient float (hero portrait) ---
       gsap.utils.toArray<HTMLElement>("[data-float]").forEach((el) => {

@@ -1,10 +1,16 @@
 import { BookCall } from "@/components/site/cta"
 import { Reveal } from "@/components/site/reveal"
+import { Stirrup } from "@/components/site/motifs"
 import { TIERS } from "@/lib/site"
 
 export function Offer() {
   return (
-    <section id="offer" className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+    <section id="offer" className="relative overflow-hidden border-y border-line bg-cream">
+      <Stirrup
+        strokeWidth={0.5}
+        className="pointer-events-none absolute -right-20 -bottom-16 hidden size-[30rem] text-gold opacity-[0.06] lg:block"
+      />
+      <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
       <Reveal>
         <p className="kicker">Work with Tammy</p>
         <h2 className="mt-5 max-w-2xl text-balance text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08]">
@@ -44,6 +50,7 @@ export function Offer() {
           </p>
         </div>
       </Reveal>
+      </div>
     </section>
   )
 }

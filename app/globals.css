@@ -12,8 +12,8 @@
 
 @theme inline {
   /* type roles */
-  --font-heading: var(--font-heading);       /* Plus Jakarta Sans — headings */
-  --font-display: var(--font-heading);       /* headings alias               */
+  --font-display: var(--font-display);       /* Fraunces — display serif     */
+  --font-heading: var(--font-heading);       /* Plus Jakarta Sans — UI sans  */
   --font-sans: var(--font-heading);          /* Plus Jakarta Sans — body     */
   --font-mono: var(--font-mono);             /* Geist Mono — labels          */
 
@@ -110,14 +110,26 @@
     background-attachment: fixed;
     text-rendering: optimizeLegibility;
   }
+  /* fine paper grain over the whole field so cream never reads plastic */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
   ::selection {
     background: color-mix(in oklab, var(--gold) 32%, transparent);
     color: var(--ink);
   }
   h1, h2, h3 {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    letter-spacing: -0.011em;
+    font-optical-sizing: auto;
   }
 }
 
@@ -130,49 +142,79 @@
     text-transform: uppercase;
     color: var(--teal);
   }
-  /* wordmark / signature lines — clean, tight-tracked grotesque */
+  /* wordmark / signature lines — the display serif, set with restraint */
   .script {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    letter-spacing: -0.025em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    font-optical-sizing: auto;
   }
 
   /* Signature "reins" method chain ------------------------------------- */
+  /* Mobile: a rein descends vertically, node to node. */
   .reins {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
     gap: 0;
   }
   .reins__node {
     font-family: var(--font-display);
-    font-size: clamp(1.05rem, 2.4vw, 1.6rem);
+    font-size: clamp(1.15rem, 2.6vw, 1.85rem);
+    font-weight: 500;
+    font-optical-sizing: auto;
     color: var(--teal-ink);
     white-space: nowrap;
+    text-align: center;
   }
   .reins__link {
-    flex: 1 1 24px;
-    min-width: 22px;
-    height: 2px;
-    margin: 0 clamp(8px, 1.4vw, 20px);
-    background: repeating-linear-gradient(
-      90deg,
-      var(--gold) 0 8px,
-      transparent 8px 14px
-    );
     position: relative;
+    width: 2px;
+    height: 20px;
+    margin: 7px 0;
+    background: repeating-linear-gradient(
+      180deg,
+      var(--gold) 0 7px,
+      transparent 7px 13px
+    );
   }
   .reins__link::after {
     content: "";
     position: absolute;
-    right: -3px;
-    top: 50%;
+    left: 50%;
+    bottom: -3px;
     width: 7px;
     height: 7px;
     border-radius: 50%;
     background: var(--gold);
-    transform: translateY(-50%);
+    transform: translateX(-50%);
+  }
+  /* Desktop: the rein runs left → right across the chain. */
+  @media (min-width: 640px) {
+    .reins {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+    .reins__link {
+      flex: 1 1 24px;
+      min-width: 22px;
+      width: auto;
+      height: 2px;
+      margin: 0 clamp(10px, 1.6vw, 22px);
+      background: repeating-linear-gradient(
+        90deg,
+        var(--gold) 0 8px,
+        transparent 8px 14px
+      );
+    }
+    .reins__link::after {
+      left: auto;
+      right: -3px;
+      bottom: auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 
   /* labeled photo placeholder (real shots dropped in later) ------------- */
@@ -210,6 +252,54 @@
     box-shadow: 0 12px 34px -24px rgba(18, 58, 64, 0.5);
     background-color: color-mix(in oklab, var(--paper) 92%, transparent);
   }
+}
+
+/* button glint — a light sheen sweeps once across on hover (replaces magnet) */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 34%;
+  transform: translateX(-160%) skewX(-18deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .sheen:hover::after {
+    animation: sheenSweep 0.7s ease;
+  }
+}
+@keyframes sheenSweep {
+  from { transform: translateX(-160%) skewX(-18deg); }
+  to { transform: translateX(420%) skewX(-18deg); }
+}
+
+/* signature synapse terminals breathe */
+@keyframes synapsePulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+.synapse-dot {
+  animation: synapsePulse 2.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* motif badge — settles gold on hover of its card */
+.motif-badge {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+}
+.group:hover .motif-badge {
+  transform: rotate(-8deg) scale(1.06);
 }
 
 @media (prefers-reduced-motion: reduce) {

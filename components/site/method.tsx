@@ -1,5 +1,8 @@
 import { Reveal } from "@/components/site/reveal"
+import { Bit, Neuron, ReinSynapse } from "@/components/site/motifs"
 import { CHAIN } from "@/lib/site"
+
+const BEAT_MOTIFS = [Neuron, Bit, ReinSynapse]
 
 const BEATS = [
   {
@@ -42,22 +45,38 @@ export function Method() {
         </Reveal>
 
         <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {BEATS.map((b, i) => (
-            <Reveal key={b.k} delay={i * 100}>
-              <div className="h-full rounded-2xl border border-cream/12 bg-cream/[0.05] p-7 backdrop-blur-sm">
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-gold-soft">
-                  {b.k}
-                </p>
-                <p className="mt-4 leading-relaxed text-cream/85">{b.t}</p>
-              </div>
-            </Reveal>
-          ))}
+          {BEATS.map((b, i) => {
+            const Motif = BEAT_MOTIFS[i]
+            const isSignature = i === BEATS.length - 1
+            return (
+              <Reveal key={b.k} delay={i * 100}>
+                <div className="h-full rounded-2xl border border-cream/12 bg-cream/[0.05] p-7 backdrop-blur-sm">
+                  <span className="text-gold-soft">
+                    {isSignature ? (
+                      <ReinSynapse pulse className="h-8 w-auto" />
+                    ) : (
+                      <Motif className="size-7" strokeWidth={1.4} />
+                    )}
+                  </span>
+                  <p className="mt-5 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-gold-soft">
+                    {b.k}
+                  </p>
+                  <p className="mt-4 leading-relaxed text-cream/85">{b.t}</p>
+                </div>
+              </Reveal>
+            )
+          })}
         </div>
 
         {/* Signature chain — Memories → … → Results */}
         <Reveal delay={120}>
           <div className="mt-14 rounded-3xl border border-cream/12 bg-paper-2 p-8 text-center sm:p-10">
-            <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-teal">
+            <ReinSynapse
+              pulse
+              className="mx-auto h-9 w-auto text-teal"
+              strokeWidth={1.6}
+            />
+            <p className="mt-5 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-teal">
               Her signature chain
             </p>
             <div className="reins mt-6" data-reins>

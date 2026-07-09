@@ -5,7 +5,8 @@ import { BOOK_URL } from "@/lib/site"
 
 /**
  * Primary conversion: "Book a call" — the single job of the page.
- * Gold fill, generous target, subtle lift on hover. Links to Tammy's Wix calendar.
+ * Gold fill, generous target, a light sheen glint sweeps across on hover, and a
+ * subtle lift. Links to Tammy's Wix calendar.
  */
 export function BookCall({
   className,
@@ -19,12 +20,11 @@ export function BookCall({
       href={BOOK_URL}
       target="_blank"
       rel="noopener noreferrer"
-      data-magnetic
       className={cn(
-        "group inline-flex items-center justify-center gap-2 rounded-full",
+        "sheen group inline-flex items-center justify-center gap-2 rounded-full",
         "bg-gold px-7 py-3.5 font-medium text-ink",
         "shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_8px_24px_-10px_rgba(176,132,74,0.9)]",
-        "transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-soft",
+        "transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-soft hover:shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_16px_30px_-12px_rgba(176,132,74,0.95)]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className
       )}
@@ -45,16 +45,15 @@ export function TailoredQuote({ className }: { className?: string }) {
       href={BOOK_URL}
       target="_blank"
       rel="noopener noreferrer"
-      data-magnetic
       className={cn(
         "group inline-flex items-center justify-center gap-2 rounded-full",
         "border border-teal/35 px-6 py-3.5 font-medium text-teal-ink",
-        "transition-colors duration-200 hover:border-teal hover:bg-teal/5",
+        "transition-all duration-200 hover:-translate-y-0.5 hover:border-teal hover:bg-teal/8",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className
       )}
     >
-      <Phone className="size-4" />
+      <Phone className="size-4 transition-transform duration-200 group-hover:-rotate-12" />
       Call for a tailored quote
     </a>
   )

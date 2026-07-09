@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/site/reveal"
+import { Horseshoe } from "@/components/site/motifs"
 
 const TRIED = [
   "Pushing through it",
@@ -10,7 +11,12 @@ const TRIED = [
 
 export function Knot() {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+    <section className="relative overflow-hidden">
+      <Horseshoe
+        strokeWidth={0.5}
+        className="pointer-events-none absolute -bottom-20 -left-16 hidden size-[28rem] text-teal opacity-[0.05] sm:block"
+      />
+      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
       <Reveal>
         <p className="kicker">If this is you</p>
         <h2 className="mt-5 max-w-3xl text-balance text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08]">
@@ -67,6 +73,7 @@ export function Knot() {
             </figcaption>
           </figure>
         </Reveal>
+      </div>
       </div>
     </section>
   )
