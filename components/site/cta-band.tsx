@@ -30,11 +30,7 @@ export function CtaBand() {
         <Reveal>
           <p className="kicker text-gold-soft">Your next ride starts here</p>
 
-          <ReinSynapse
-            pulse
-            strokeWidth={1.6}
-            className="mx-auto mt-7 h-9 w-auto text-gold-soft"
-          />
+
 
           <p className="script mt-7 text-[clamp(2.2rem,6vw,3.8rem)] leading-[1.03] text-cream italic">
             Let&rsquo;s build your <span className="text-gold-soft">brave</span>.
@@ -47,7 +43,7 @@ export function CtaBand() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-3.5">
             <BookCall className="w-full justify-center sm:w-auto" />
-            <TailoredQuote className="w-full justify-center border-cream/30 text-cream hover:border-cream hover:bg-cream/10 sm:w-auto" />
+            <TailoredQuote className="w-full justify-center border-cream/30 bg-teal text-cream hover:border-cream hover:bg-teal-lt sm:w-auto" />
           </div>
 
           <p className="mt-8 font-mono text-[0.66rem] uppercase tracking-[0.18em] text-cream/55">
