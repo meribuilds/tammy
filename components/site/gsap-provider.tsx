@@ -17,7 +17,7 @@ const useIso = typeof window !== "undefined" ? useLayoutEffect : useEffect
  *   [data-reins]     — the signature Memories→…→Results chain draws in
  *   [data-float]     — ambient float (hero portrait)
  *   [data-parallax]  — slow parallax drift on scroll (photo slots)
- *   [data-nav]       — nav condenses after leaving the hero
+ *   [data-nav]       — nav swaps to its paper pill after leaving the hero
  */
 export function GsapProvider() {
   useIso(() => {
@@ -25,7 +25,30 @@ export function GsapProvider() {
       typeof matchMedia !== "undefined" &&
       matchMedia("(prefers-reduced-motion: reduce)").matches
 
-    if (reduce) return // elements are already visible; skip all motion
+    // --- nav collects into its floating pill once the page moves ---
+    // Wired up before the reduced-motion bail: this is a legibility state, not
+    // decoration — the bar has no backdrop until it gets one here.
+    const nav = document.querySelector<HTMLElement>("[data-nav]")
+    let navFrame = 0
+    const syncNav = () => {
+      navFrame = 0
+      nav?.setAttribute("data-scrolled", window.scrollY > 24 ? "true" : "false")
+    }
+    const onNavScroll = () => {
+      if (!navFrame) navFrame = requestAnimationFrame(syncNav)
+    }
+    const cleanupNav = () => {
+      window.removeEventListener("scroll", onNavScroll)
+      window.removeEventListener("resize", onNavScroll)
+      if (navFrame) cancelAnimationFrame(navFrame)
+    }
+    if (nav) {
+      syncNav()
+      window.addEventListener("scroll", onNavScroll, { passive: true })
+      window.addEventListener("resize", onNavScroll)
+    }
+
+    if (reduce) return cleanupNav // elements are already visible; skip all motion
 
     gsap.registerPlugin(ScrollTrigger)
 
@@ -112,26 +135,12 @@ export function GsapProvider() {
         )
       })
 
-      // --- nav condenses past the hero ---
-      const nav = document.querySelector<HTMLElement>("[data-nav]")
-      if (nav) {
-        ScrollTrigger.create({
-          start: "top -120",
-          onUpdate: (self) =>
-            nav.setAttribute("data-scrolled", self.progress > 0 ? "true" : "false"),
-          onToggle: (self) =>
-            nav.setAttribute("data-scrolled", self.isActive ? "true" : "false"),
-        })
-        ScrollTrigger.create({
-          trigger: "body",
-          start: "80 top",
-          onEnter: () => nav.setAttribute("data-scrolled", "true"),
-          onLeaveBack: () => nav.setAttribute("data-scrolled", "false"),
-        })
-      }
     })
 
-    return () => ctx.revert()
+    return () => {
+      ctx.revert()
+      cleanupNav()
+    }
   }, [])
 
   return null

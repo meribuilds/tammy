@@ -1,3 +1,5 @@
+import { Quote } from "lucide-react"
+
 import { Reveal } from "@/components/site/reveal"
 import { Horseshoe } from "@/components/site/motifs"
 
@@ -16,7 +18,7 @@ export function Knot() {
         strokeWidth={0.5}
         className="pointer-events-none absolute -bottom-20 -left-16 hidden size-[28rem] text-teal opacity-[0.05] sm:block"
       />
-      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
       <Reveal>
         <p className="kicker">If this is you</p>
         <h2 className="mt-5 max-w-3xl text-balance text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08]">
@@ -57,13 +59,12 @@ export function Knot() {
         {/* Pull-quote — the problem in her words */}
         <Reveal delay={120}>
           <figure className="relative rounded-3xl border border-line bg-paper-2 p-8 sm:p-10">
-            <span
+            <Quote
               aria-hidden
-              className="font-display absolute top-3 left-6 text-7xl leading-none text-gold/35 select-none"
-            >
-              &ldquo;
-            </span>
-            <blockquote className="font-display relative text-[clamp(1.35rem,2.6vw,1.9rem)] leading-snug text-teal-ink italic">
+              strokeWidth={1.4}
+              className="absolute top-6 right-7 size-9 text-gold/35"
+            />
+            <blockquote className="relative text-[clamp(1.35rem,2.6vw,1.9rem)] leading-snug font-medium tracking-[-0.02em] text-teal-ink">
               Everyone keeps telling me to just get back on. I try, and my body
               won&rsquo;t let me. I feel ridiculous being scared of something I used
               to do without thinking.

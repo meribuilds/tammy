@@ -11,6 +11,12 @@ const LINKS = [
   { href: "#offer", label: "Work with Tammy" },
 ]
 
+/**
+ * Two-state nav. At rest it's a bare bar on paper — no chrome, aligned to the
+ * page container. Once the page scrolls it collects into a floating pill so it
+ * stays readable over whatever passes beneath. GsapProvider flips
+ * data-scrolled; every state style is a group-data variant below.
+ */
 export function SiteNav() {
   const [open, setOpen] = useState(false)
 
@@ -31,9 +37,13 @@ export function SiteNav() {
   }, [open])
 
   return (
-    <header data-nav className="sticky top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4">
-      {/* floating island — detached rounded bar rather than a full-width band */}
-      <nav className="mx-auto flex max-w-5xl items-center justify-between gap-3 rounded-full border border-line/70 bg-paper/85 py-2 pr-2 pl-3 shadow-[0_10px_30px_-22px_rgba(18,58,64,0.55)] backdrop-blur-md sm:pl-4">
+    <header
+      data-nav
+      className="group/nav fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-5"
+    >
+      {/* narrower than the hero frame on purpose — it reads as an island sitting
+          on the page, not as a lid matching the image edge for edge */}
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-full border border-transparent py-2 pr-2 pl-4 group-data-[scrolled=true]/nav:border-line/70 group-data-[scrolled=true]/nav:bg-paper/90 group-data-[scrolled=true]/nav:shadow-[0_18px_42px_-26px_rgba(18,58,64,0.62)] group-data-[scrolled=true]/nav:backdrop-blur-md sm:pr-3 sm:pl-5">
         {/* logomark crest + wordmark */}
         <a
           href="#top"
@@ -54,7 +64,7 @@ export function SiteNav() {
             <a
               key={l.href}
               href={l.href}
-              className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ink-soft transition-colors hover:text-teal"
+              className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ink-soft hover:text-teal"
             >
               {l.label}
             </a>
@@ -69,7 +79,7 @@ export function SiteNav() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="flex size-9 items-center justify-center rounded-full text-teal-ink transition-colors hover:bg-teal/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal sm:hidden"
+          className="flex size-9 items-center justify-center rounded-full text-teal-ink hover:bg-teal/5 focus-visible:ring-2 focus-visible:ring-teal focus-visible:outline-none sm:hidden"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>

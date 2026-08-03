@@ -10,7 +10,7 @@ export function Offer() {
         strokeWidth={0.5}
         className="pointer-events-none absolute -right-20 -bottom-16 hidden size-[30rem] text-gold opacity-[0.06] lg:block"
       />
-      <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
       <Reveal>
         <p className="kicker">Work with Tammy</p>
         <h2 className="mt-5 max-w-2xl text-balance text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08]">

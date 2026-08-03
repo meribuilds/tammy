@@ -32,11 +32,11 @@ export function Method() {
         }}
       />
 
-      <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <Reveal>
           <p className="kicker text-gold">The method</p>
           <h2 className="mt-5 max-w-3xl text-balance text-[clamp(2rem,4.6vw,3.2rem)] leading-[1.06] text-cream">
-            Right effort. <span className="italic text-gold-soft">Wrong direction.</span>
+            Right effort. <span className="text-gold-soft">Wrong direction.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/75">
             Pushing through fear never clears it. We work at the level where the

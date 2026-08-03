@@ -26,13 +26,13 @@ export function CtaBand() {
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/45 to-transparent"
       />
 
-      <div className="relative mx-auto max-w-3xl px-5 py-24 text-center sm:px-8 sm:py-32">
+      <div className="relative mx-auto max-w-4xl px-5 py-24 text-center sm:px-8 sm:py-32">
         <Reveal>
           <p className="kicker text-gold-soft">Your next ride starts here</p>
 
 
 
-          <p className="script mt-7 text-[clamp(2.2rem,6vw,3.8rem)] leading-[1.03] text-cream italic">
+          <p className="mt-7 text-[clamp(2.2rem,6vw,3.8rem)] leading-[1.03] font-bold tracking-[-0.035em] text-cream">
             Let&rsquo;s build your <span className="text-gold-soft">brave</span>.
           </p>
 

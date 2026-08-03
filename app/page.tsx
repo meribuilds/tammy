@@ -5,6 +5,7 @@ import { Knot } from "@/components/site/knot"
 import { Method } from "@/components/site/method"
 import { Offer } from "@/components/site/offer"
 import { Proof } from "@/components/site/proof"
+import { Gallery } from "@/components/site/gallery"
 import { CtaBand } from "@/components/site/cta-band"
 import { SiteFooter } from "@/components/site/site-footer"
 
@@ -19,6 +20,7 @@ export default function Page() {
         <Method />
         <Offer />
         <Proof />
+        <Gallery />
         <CtaBand />
       </main>
       <SiteFooter />

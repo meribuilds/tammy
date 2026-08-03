@@ -1,29 +1,21 @@
 import type { Metadata } from "next"
-import { Fraunces, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google"
+import { Geist_Mono, Plus_Jakarta_Sans } from "next/font/google"
 
 import "./globals.css"
 import { cn } from "@/lib/utils"
-
-// Display — a warm, high-contrast editorial serif with real italics and optical
-// sizing. Carries headlines, the wordmark and the signature chain; used with
-// restraint so its personality reads as the brand, not as decoration.
-const fontDisplay = Fraunces({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-display",
-})
-
-// Body + UI — a contemporary grotesque, kept quiet so the serif can lead.
-const fontHeading = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-heading",
-})
 
 // Utility — eyebrows, labels, data.
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+})
+
+// Everything else — headlines, body and UI all sit on one contemporary
+// grotesque; hierarchy comes from size, weight and tracking, not from a
+// second typeface.
+const fontHeading = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-heading",
 })
 
 export const metadata: Metadata = {
@@ -40,10 +32,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn(
         "antialiased",
         "font-sans",
-        fontDisplay.variable,
         fontHeading.variable,
         fontMono.variable
       )}

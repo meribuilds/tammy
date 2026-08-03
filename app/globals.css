@@ -11,11 +11,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* type roles */
-  --font-display: var(--font-display);       /* Fraunces — display serif     */
-  --font-heading: var(--font-heading);       /* Plus Jakarta Sans — UI sans  */
-  --font-sans: var(--font-heading);          /* Plus Jakarta Sans — body     */
-  --font-mono: var(--font-mono);             /* Geist Mono — labels          */
+  /* type roles — one sans carries display, UI and body; mono handles labels */
+  --font-display: var(--font-heading);       /* Plus Jakarta Sans — headlines */
+  --font-heading: var(--font-heading);       /* Plus Jakarta Sans — UI sans   */
+  --font-sans: var(--font-heading);          /* Plus Jakarta Sans — body      */
+  --font-mono: var(--font-mono);             /* Geist Mono — labels           */
 
   /* brand color utilities (bg-teal, text-gold, …) */
   --color-paper: var(--paper);
@@ -58,6 +58,9 @@
 }
 
 :root {
+  /* headline role — no separate display face, it's the same sans set heavier */
+  --font-display: var(--font-heading);
+
   /* raw brand palette (from poster) */
   --paper: #f3eee3;
   --paper-2: #fbf8f1;
@@ -137,11 +140,19 @@
     background: color-mix(in oklab, var(--gold) 32%, transparent);
     color: var(--ink);
   }
+  /* One sans carries the whole page, so hierarchy has to come from weight and
+     tracking: the bigger the type, the tighter and heavier it is set. */
   h1, h2, h3 {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.011em;
-    font-optical-sizing: auto;
+    font-weight: 700;
+  }
+  h1 { letter-spacing: -0.038em; }
+  h2 { letter-spacing: -0.03em; }
+  h3 { letter-spacing: -0.02em; }
+
+  /* the fixed nav rides over content — keep anchor targets clear of it */
+  section[id] {
+    scroll-margin-top: 6rem;
   }
 }
 
@@ -154,12 +165,11 @@
     text-transform: uppercase;
     color: var(--teal);
   }
-  /* wordmark / signature lines — the display serif, set with restraint */
+  /* wordmark / signature lines */
   .script {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.005em;
-    font-optical-sizing: auto;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   /* Signature "reins" method chain ------------------------------------- */
@@ -173,8 +183,8 @@
   .reins__node {
     font-family: var(--font-display);
     font-size: clamp(1.15rem, 2.6vw, 1.85rem);
-    font-weight: 500;
-    font-optical-sizing: auto;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     color: var(--teal-ink);
     white-space: nowrap;
     text-align: center;
@@ -256,14 +266,16 @@
     opacity: 0;
   }
 
-  /* floating nav pill settles deeper once scrolled past the hero */
-  [data-nav] nav {
-    transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-  }
-  [data-nav][data-scrolled="true"] nav {
-    box-shadow: 0 18px 42px -26px rgba(18, 58, 64, 0.62);
-    background-color: color-mix(in oklab, var(--paper) 94%, transparent);
-    border-color: color-mix(in oklab, var(--line) 80%, var(--teal));
+  /* nav rides bare on the hero image, then settles into a paper pill once the
+     hero is behind it — every state style lives on the component itself. */
+  [data-nav] nav,
+  [data-nav] nav * {
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      padding 0.3s ease;
   }
 }
 

@@ -1,80 +1,80 @@
+import Image from "next/image"
+
 import { BookCall, TailoredQuote } from "@/components/site/cta"
-import { PhotoSlot } from "@/components/site/photo-slot"
 import { Reveal } from "@/components/site/reveal"
 
+/**
+ * Hero — a single inset image frame that carries the whole section.
+ * The photograph (horse eye ↔ rider eye) is the argument the copy makes, so it
+ * runs full-width inside a margin, corners rounded like the nav island, with the
+ * copy laid over a teal scrim rather than beside it.
+ */
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pt-10 pb-14 sm:gap-12 sm:px-8 sm:pt-20 sm:pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-        {/* Copy */}
-        <div className="max-w-2xl">
-          <Reveal>
-            <p className="kicker">
-              <span className="sm:hidden">Neuro Reset method</span>
-              <span className="hidden sm:inline">
-                Confidence coaching for riders · Neuro Reset method
-              </span>
-            </p>
-          </Reveal>
-
-          <Reveal delay={90}>
-            <h1 className="mt-5 text-balance text-[clamp(2.15rem,6vw,4.4rem)] leading-[1.03] sm:mt-6">
-              You&rsquo;re not a nervous rider.{" "}
-              <span className="italic text-teal">Your brain is protecting you</span>{" "}
-              from a memory.
-            </h1>
-          </Reveal>
-
-          <Reveal delay={180}>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft sm:mt-6">
-              <span className="sm:hidden">
-                Clear the fear at the memory, so you ride from calm, not force.
-              </span>
-              <span className="hidden sm:inline">
-                Get back in the saddle without white-knuckling it. Neuro Reset uses
-                memory reconsolidation to unlink the fear and relink trust, so you
-                ride from calm, not force.
-              </span>
-            </p>
-          </Reveal>
-
-          <Reveal delay={260}>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3.5">
-              <BookCall className="w-full justify-center sm:w-auto" />
-              <TailoredQuote className="w-full justify-center sm:w-auto" />
-            </div>
-          </Reveal>
-
-          <Reveal delay={340}>
-            <p className="mt-8 hidden font-mono text-[0.72rem] uppercase tracking-[0.16em] text-ink-soft sm:block">
-              Science-backed<span className="text-gold"> · </span>Soul-driven
-              <span className="text-gold"> · </span>Results-focused
-            </p>
-          </Reveal>
+    <section
+      id="top"
+      className="px-3 pt-20 pb-6 sm:px-6 sm:pt-24 sm:pb-8"
+    >
+      <div className="relative isolate mx-auto max-w-[110rem] overflow-hidden rounded-[1.5rem] border border-line/60 shadow-[0_40px_90px_-50px_rgba(18,58,64,0.75)] sm:rounded-[2.25rem]">
+        {/* Photograph — oversized on the vertical so the parallax drift never
+            exposes an edge of the frame. */}
+        <div className="absolute inset-x-0 -inset-y-10 z-0" data-parallax>
+          <Image
+            src="/assets/hero-image.jpeg"
+            alt="Close-up of a horse's eye beside a rider's eye, meeting the same light"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[64%_center] sm:object-center"
+          />
         </div>
 
-        {/* Portrait */}
-        <Reveal delay={200} className="relative">
-          <div className="relative" data-float>
-            <PhotoSlot
-              label="Tammy with a horse, warm natural light, calm & grounded"
-              ratio="4 / 5"
-              className="w-full"
-            />
-            {/* signature tag overlapping the frame */}
-            <div className="absolute -bottom-5 -left-4 rounded-2xl border border-line bg-paper-2/95 px-5 py-3 shadow-[0_18px_40px_-24px_rgba(18,58,64,0.55)] backdrop-blur">
-              <p className="script text-xl text-teal-ink">Tammy Magnuson</p>
-              <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-ink-soft">
-                Glenwood City, WI
-              </p>
-            </div>
-          </div>
-        </Reveal>
-      </div>
+        {/* Scrim — stacks up from the bottom on mobile, in from the left on
+            desktop, so the copy always sits on the quiet side of the frame. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 z-0 bg-gradient-to-t from-teal-ink/94 via-teal-ink/62 to-teal-ink/20 sm:bg-gradient-to-r sm:from-teal-ink/92 sm:via-teal-ink/55 sm:to-teal-ink/10"
+        />
 
-      {/* hairline close */}
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="h-px w-full bg-line" />
+        {/* Copy */}
+        {/* the frame fills the viewport it opens in: everything the nav and the
+            page margins take is subtracted, so nothing dead sits below it */}
+        <div className="relative z-10 flex min-h-[clamp(32rem,calc(100svh-8rem),62rem)] flex-col justify-end px-6 py-10 sm:px-10 sm:py-14 lg:px-16 lg:py-20">
+          <div className="max-w-3xl">
+            <Reveal>
+              <p className="kicker text-gold-soft">Neuro Reset method</p>
+            </Reveal>
+
+            <Reveal delay={90}>
+              <h1 className="mt-5 text-balance text-[clamp(2.3rem,6vw,4.6rem)] leading-[1.02] text-paper-2 sm:mt-6">
+                You&rsquo;re not a nervous rider.{" "}
+                <span className="text-gold-soft">
+                  Your brain is guarding a memory.
+                </span>
+              </h1>
+            </Reveal>
+
+            <Reveal delay={180}>
+              <p className="mt-5 max-w-md text-lg leading-relaxed text-paper/85 sm:mt-6">
+                Clear the fear where it lives, so you ride from calm, not force.
+              </p>
+            </Reveal>
+
+            <Reveal delay={260}>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3.5">
+                <BookCall className="w-full justify-center sm:w-auto" />
+                <TailoredQuote className="w-full justify-center border-paper/40 bg-paper/10 text-paper backdrop-blur-sm hover:border-paper/80 hover:bg-paper/20 sm:w-auto" />
+              </div>
+            </Reveal>
+
+            <Reveal delay={340}>
+              <p className="mt-8 hidden font-mono text-[0.72rem] uppercase tracking-[0.16em] text-paper/70 sm:block">
+                Science-backed<span className="text-gold-soft"> · </span>Soul-driven
+                <span className="text-gold-soft"> · </span>Results-focused
+              </p>
+            </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   )

@@ -22,7 +22,7 @@ export function Proof() {
         strokeWidth={0.5}
         className="pointer-events-none absolute -top-16 -right-16 hidden size-[26rem] text-teal opacity-[0.05] sm:block"
       />
-      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
       <Reveal>
         <p className="kicker">What she brings</p>
         <h2 className="mt-5 max-w-2xl text-balance text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08]">
@@ -42,7 +42,7 @@ export function Proof() {
                     <Motif className="size-5" />
                   </span>
                   <div className="pt-0.5">
-                    <span className="font-display text-xs leading-none text-gold tabular-nums">
+                    <span className="font-mono text-[0.68rem] leading-none tracking-[0.12em] text-gold tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="mt-1 block text-lg leading-tight text-teal-ink">
@@ -74,7 +74,7 @@ export function Proof() {
           <Reveal delay={180}>
             <figure className="rounded-2xl border border-dashed border-teal/30 bg-paper-2 p-6">
               <Quote className="size-5 text-gold" />
-              <p className="mt-3 leading-relaxed text-ink-soft italic">
+              <p className="mt-3 leading-relaxed text-ink-soft">
                 A rider&rsquo;s own words about getting back in the saddle will live
                 here.
               </p>

@@ -3,7 +3,7 @@ import { CONTACT, SOCIALS } from "@/lib/site"
 export function SiteFooter() {
   return (
     <footer className="border-t border-line bg-paper">
-      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           {/* Brand */}
           <div>

@@ -1,0 +1,80 @@
+import { Reveal } from "@/components/site/reveal"
+import { CylinderCarousel } from "@/components/ui/cylinder-carousel"
+
+/**
+ * The payoff band: what riding looks like once the fear is cleared. Sits right
+ * before the CTA so the last thing read is the ask and the last thing seen is
+ * the outcome.
+ *
+ * The carousel takes plain <img> tags, so the shots are routed through Next's
+ * image optimizer by hand — twelve untouched JPEGs would be ~3MB on the wire.
+ */
+const shot = (n: number) =>
+  `/_next/image?url=${encodeURIComponent(`/assets/image-${n}.jpg`)}&w=640&q=70`
+
+const SHOTS = [
+  { n: 1, alt: "Groundwork in the grass, horse lowering its head to meet her" },
+  { n: 4, alt: "Rider and horse face to face in a rope halter, both at ease" },
+  { n: 5, alt: "Rider in the saddle with both arms up, reins dropped, autumn woods" },
+  { n: 3, alt: "Three riders in open water, arms thrown up" },
+  { n: 13, alt: "Chestnut horse trotting through snow at golden hour" },
+  { n: 2, alt: "Rider standing beside her grazing horse by a red barn" },
+  { n: 10, alt: "Rider carrying the flag at a gallop across the arena" },
+  { n: 8, alt: "Dressage rider working a dapple grey along the treeline" },
+  { n: 11, alt: "Grey horse clearing an oxer in a show jumping round" },
+  { n: 14, alt: "Barrel racer cutting tight around the barrel in the dirt" },
+  { n: 6, alt: "Show jumper folded over a fence in an indoor arena" },
+  { n: 9, alt: "Rider laughing in the saddle after a round" },
+]
+
+const IMAGES = SHOTS.map((s) => ({ src: shot(s.n), alt: s.alt }))
+
+export function Gallery() {
+  return (
+    <section className="relative overflow-hidden border-y border-line bg-cream">
+      <div className="relative mx-auto max-w-7xl px-5 pt-20 text-center sm:px-8 sm:pt-28 lg:px-12">
+        <Reveal>
+          <p className="kicker">The other side of it</p>
+          <h2 className="mx-auto mt-5 max-w-2xl text-balance text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08]">
+            What getting back looks like.
+          </h2>
+        </Reveal>
+      </div>
+
+      {/* full-bleed — breaks out to the viewport regardless of any container */}
+      <Reveal delay={120} className="relative left-1/2 w-screen -translate-x-1/2">
+        <CylinderCarousel
+          images={IMAGES}
+          animationDuration={44}
+          className="min-h-[360px] sm:min-h-[470px] lg:min-h-[580px]"
+          /* the component writes --w inline, so the responsive sizes have to
+             win on !important — cards must shrink or they overrun small screens */
+          containerClassName="[--w:8.5rem]! sm:[--w:11rem]! lg:[--w:14rem]!"
+          cardClassName="shadow-[0_24px_50px_-30px_rgba(18,58,64,0.8)]"
+          /* props spread over the component's own style, so every value has to
+             be restated here.
+             perspective: the cylinder's radius grows with card count — twelve
+             cards put it near 450px, and against the component's 35em camera
+             the front card scales ~5x and gets clipped by the frame. Standing
+             the camera well back keeps the turn readable at any card count.
+             mask: the default faded 20% off each side, which read as a crop. */
+          style={{
+            perspective: "100em",
+            maskImage:
+              "linear-gradient(90deg, transparent, #000 6% 94%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(90deg, transparent, #000 6% 94%, transparent)",
+          }}
+        />
+      </Reveal>
+
+      <div className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 sm:pb-28 lg:px-12">
+        <Reveal delay={200}>
+          <p className="mx-auto max-w-md text-center text-base leading-relaxed text-ink-soft">
+            Not managed. Cleared &mdash; and back out there.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
