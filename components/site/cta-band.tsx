@@ -1,14 +1,11 @@
 import { BookCall, TailoredQuote } from "@/components/site/cta"
-import { FramedSection } from "@/components/site/frame"
+import { FramedSection, Measure } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
 import { Horseshoe } from "@/components/site/motifs"
 
 export function CtaBand() {
   return (
-    <FramedSection
-      className="pb-12 sm:pb-16"
-      frameClassName="bg-teal-ink text-cream"
-    >
+    <FramedSection frameClassName="bg-teal-ink text-cream">
       {/* gold halo above, cool glow below — composed, not blotchy */}
       <div
         aria-hidden
@@ -30,7 +27,12 @@ export function CtaBand() {
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/45 to-transparent"
       />
 
-      <div className="relative mx-auto max-w-4xl px-5 py-24 text-center sm:px-8 sm:py-32">
+      {/* narrower than the 6xl measure the other bands share: it's a single
+          centred column of type, and 6xl would let the headline run too wide */}
+      <Measure
+        className="relative py-24 text-center sm:py-32"
+        innerClassName="max-w-4xl"
+      >
         <Reveal>
           <p className="kicker text-gold-soft">Your next ride starts here</p>
 
@@ -41,7 +43,7 @@ export function CtaBand() {
 
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-cream/80">
             Book a call and we&rsquo;ll map the memory that&rsquo;s keeping you
-            out of the saddle &mdash; and the path back in.
+            out of the saddle, and the path back in.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-3.5">
@@ -54,7 +56,7 @@ export function CtaBand() {
             <span className="text-gold-soft"> · </span>No pressure
           </p>
         </Reveal>
-      </div>
+      </Measure>
     </FramedSection>
   )
 }

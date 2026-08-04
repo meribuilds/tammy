@@ -1,4 +1,4 @@
-import { FramedSection } from "@/components/site/frame"
+import { FramedSection, Measure } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
 import { CylinderCarousel } from "@/components/ui/cylinder-carousel"
 
@@ -38,17 +38,17 @@ const IMAGES = SHOTS.map((s) => ({
 export function Gallery() {
   return (
     <FramedSection frameClassName="bg-cream">
-      <div className="relative mx-auto max-w-7xl px-5 pt-20 text-center sm:px-8 sm:pt-28 lg:px-12">
+      <Measure className="relative pt-20 text-center sm:pt-28">
         <Reveal>
           <p className="kicker">The other side of it</p>
           <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08] text-balance">
             What getting back looks like.
           </h2>
         </Reveal>
-      </div>
+      </Measure>
 
-      {/* the frame is the bleed now — the carousel fills it edge to edge rather
-          than breaking out to the viewport behind it */}
+      {/* the band is the bleed — the carousel runs the full width of the
+          viewport, outside the measure the type is held to */}
       <Reveal delay={120} className="relative w-full">
         <CylinderCarousel
           images={IMAGES}
@@ -76,13 +76,13 @@ export function Gallery() {
         />
       </Reveal>
 
-      <div className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 sm:pb-28 lg:px-12">
+      <Measure className="pb-20 sm:pb-28">
         <Reveal delay={200}>
           <p className="mx-auto max-w-md text-center text-base leading-relaxed text-ink-soft">
-            Not managed. Cleared &mdash; and back out there.
+            Not managed. Cleared, and back out there.
           </p>
         </Reveal>
-      </div>
+      </Measure>
     </FramedSection>
   )
 }

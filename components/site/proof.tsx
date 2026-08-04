@@ -1,3 +1,4 @@
+import { Measure } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
 import {
   Horizon,
@@ -19,10 +20,10 @@ export function Proof() {
         strokeWidth={0.5}
         className="pointer-events-none absolute -top-16 -right-16 hidden size-[26rem] text-teal opacity-[0.05] sm:block"
       />
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
-        <Reveal>
+      <Measure className="py-20 sm:py-28">
+        <Reveal className="text-center">
           <p className="kicker">What she brings</p>
-          <h2 className="mt-5 max-w-2xl text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08] text-balance">
+          <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08] text-balance">
             Six pillars behind every ride back.
           </h2>
         </Reveal>
@@ -63,7 +64,7 @@ export function Proof() {
         fit riding, so there is nothing honest to put here yet. Drop a rider quote
         in here when Tammy supplies one.
       */}
-      </div>
+      </Measure>
     </section>
   )
 }

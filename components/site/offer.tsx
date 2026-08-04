@@ -1,5 +1,5 @@
 import { BookCall } from "@/components/site/cta"
-import { FramedSection } from "@/components/site/frame"
+import { FramedSection, Measure } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
 import { Stirrup } from "@/components/site/motifs"
 import { TIERS } from "@/lib/site"
@@ -11,13 +11,13 @@ export function Offer() {
         strokeWidth={0.5}
         className="pointer-events-none absolute -right-20 -bottom-16 hidden size-[30rem] text-gold opacity-[0.06] lg:block"
       />
-      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
-        <Reveal>
+      <Measure className="relative py-20 sm:py-28">
+        <Reveal className="text-center">
           <p className="kicker">Work with Tammy</p>
-          <h2 className="mt-5 max-w-2xl text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08] text-balance">
+          <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08] text-balance">
             Three ways in. All private, all tailored.
           </h2>
-          <p className="mt-5 max-w-xl text-lg text-ink-soft">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-ink-soft">
             Her work is premium and built around you, so there&rsquo;s no
             checkout and no public price. The call is where we find the right
             fit.
@@ -47,14 +47,14 @@ export function Offer() {
         </div>
 
         <Reveal delay={120}>
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 text-center">
             <BookCall />
             <p className="text-sm text-ink-soft">
               Not sure which fits? Book a call and we&rsquo;ll map it together.
             </p>
           </div>
         </Reveal>
-      </div>
+      </Measure>
     </FramedSection>
   )
 }

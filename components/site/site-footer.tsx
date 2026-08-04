@@ -1,9 +1,10 @@
+import { Measure } from "@/components/site/frame"
 import { CONTACT, SOCIALS } from "@/lib/site"
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-line bg-paper">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
+      <Measure className="py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           {/* Brand */}
           <div>
@@ -67,7 +68,7 @@ export function SiteFooter() {
             No BS coaching. Real tools. Real transformation.
           </p>
         </div>
-      </div>
+      </Measure>
     </footer>
   )
 }

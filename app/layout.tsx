@@ -21,7 +21,7 @@ const fontHeading = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Building Brave Riders · Get back in the saddle with Tammy Magnuson",
   description:
-    "You're not a nervous rider — your brain is protecting you from a memory. The Neuro Reset method uses memory reconsolidation to unlink the fear and relink trust in the saddle. Book a call with Tammy Magnuson.",
+    "You're not a nervous rider. Your brain is protecting you from a memory. The Neuro Reset method uses memory reconsolidation to unlink the fear and relink trust in the saddle. Book a call with Tammy Magnuson.",
 }
 
 export default function RootLayout({
