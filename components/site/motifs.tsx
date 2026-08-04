@@ -150,7 +150,12 @@ export function ReinSynapse({
       <path d="M84 22h15" />
       {/* synapse terminals */}
       <path d="M99 22 115 11M99 22h20M99 22 115 33" />
-      <circle className={cn(dot, pulse && "synapse-dot")} cx="99" cy="22" r="2.4" />
+      <circle
+        className={cn(dot, pulse && "synapse-dot")}
+        cx="99"
+        cy="22"
+        r="2.4"
+      />
       <circle
         className={cn(dot, pulse && "synapse-dot")}
         cx="117"

@@ -25,7 +25,7 @@ export function BookCall({
         "bg-gold px-7 py-3.5 font-medium text-ink",
         "shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_8px_24px_-10px_rgba(176,132,74,0.9)]",
         "transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-soft hover:shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_16px_30px_-12px_rgba(176,132,74,0.95)]",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none",
         className
       )}
     >
@@ -49,7 +49,7 @@ export function TailoredQuote({ className }: { className?: string }) {
         "group inline-flex items-center justify-center gap-2 rounded-full",
         "border border-teal/35 bg-paper-2 px-6 py-3.5 font-medium text-teal-ink",
         "transition-all duration-200 hover:-translate-y-0.5 hover:border-teal hover:bg-teal/10",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none",
         className
       )}
     >

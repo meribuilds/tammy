@@ -53,7 +53,7 @@ export function SiteNav() {
           <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-teal-ink text-gold-soft transition-transform duration-300 group-hover:-rotate-6">
             <Horseshoe className="size-[18px]" strokeWidth={1.6} />
           </span>
-          <span className="script whitespace-nowrap text-[0.95rem] text-teal-ink sm:text-lg">
+          <span className="script text-[0.95rem] whitespace-nowrap text-teal-ink sm:text-lg">
             Building Brave Riders
           </span>
         </a>
@@ -64,7 +64,7 @@ export function SiteNav() {
             <a
               key={l.href}
               href={l.href}
-              className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ink-soft hover:text-teal"
+              className="font-mono text-[0.7rem] tracking-[0.16em] text-ink-soft uppercase hover:text-teal"
             >
               {l.label}
             </a>
@@ -95,7 +95,7 @@ export function SiteNav() {
           />
           <div
             id="mobile-menu"
-            className="absolute inset-x-3 top-full z-50 mt-2 origin-top rounded-3xl border border-line bg-paper p-3 shadow-[0_24px_44px_-26px_rgba(18,58,64,0.6)] duration-200 animate-in fade-in slide-in-from-top-2 sm:hidden"
+            className="absolute inset-x-3 top-full z-50 mt-2 origin-top animate-in rounded-3xl border border-line bg-paper p-3 shadow-[0_24px_44px_-26px_rgba(18,58,64,0.6)] duration-200 fade-in slide-in-from-top-2 sm:hidden"
           >
             <div className="flex flex-col px-1">
               {LINKS.map((l) => (
@@ -103,7 +103,7 @@ export function SiteNav() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="border-b border-line/60 py-3.5 font-mono text-[0.74rem] uppercase tracking-[0.18em] text-teal-ink transition-colors hover:text-teal"
+                  className="border-b border-line/60 py-3.5 font-mono text-[0.74rem] tracking-[0.18em] text-teal-ink uppercase transition-colors hover:text-teal"
                 >
                   {l.label}
                 </a>

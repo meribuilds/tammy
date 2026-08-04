@@ -1,6 +1,7 @@
 import Image from "next/image"
 
 import { BookCall, TailoredQuote } from "@/components/site/cta"
+import { Frame } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
 
 /**
@@ -11,11 +12,8 @@ import { Reveal } from "@/components/site/reveal"
  */
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="px-3 pt-20 pb-6 sm:px-6 sm:pt-24 sm:pb-8"
-    >
-      <div className="relative isolate mx-auto max-w-[110rem] overflow-hidden rounded-[1.5rem] border border-line/60 shadow-[0_40px_90px_-50px_rgba(18,58,64,0.75)] sm:rounded-[2.25rem]">
+    <section id="top" className="px-3 pt-20 pb-6 sm:px-6 sm:pt-24 sm:pb-8">
+      <Frame>
         {/* Photograph — oversized on the vertical so the parallax drift never
             exposes an edge of the frame. */}
         <div className="absolute inset-x-0 -inset-y-10 z-0" data-parallax>
@@ -46,7 +44,7 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={90}>
-              <h1 className="mt-5 text-balance text-[clamp(2.3rem,6vw,4.6rem)] leading-[1.02] text-paper-2 sm:mt-6">
+              <h1 className="mt-5 text-[clamp(2.3rem,6vw,4.6rem)] leading-[1.02] text-balance text-paper-2 sm:mt-6">
                 You&rsquo;re not a nervous rider.{" "}
                 <span className="text-gold-soft">
                   Your brain is guarding a memory.
@@ -68,14 +66,15 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={340}>
-              <p className="mt-8 hidden font-mono text-[0.72rem] uppercase tracking-[0.16em] text-paper/70 sm:block">
-                Science-backed<span className="text-gold-soft"> · </span>Soul-driven
+              <p className="mt-8 hidden font-mono text-[0.72rem] tracking-[0.16em] text-paper/70 uppercase sm:block">
+                Science-backed<span className="text-gold-soft"> · </span>
+                Soul-driven
                 <span className="text-gold-soft"> · </span>Results-focused
               </p>
             </Reveal>
           </div>
         </div>
-      </div>
+      </Frame>
     </section>
   )
 }

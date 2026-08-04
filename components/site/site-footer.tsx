@@ -7,19 +7,21 @@ export function SiteFooter() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <p className="script text-2xl text-teal-ink">Building Brave Riders</p>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-soft">
-              Confidence coaching for riders who&rsquo;ve lost their nerve. The Neuro
-              Reset method: science-backed, soul-driven, results-focused.
+            <p className="script text-2xl text-teal-ink">
+              Building Brave Riders
             </p>
-            <p className="mt-5 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-teal">
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-soft">
+              Confidence coaching for riders who&rsquo;ve lost their nerve. The
+              Neuro Reset method: science-backed, soul-driven, results-focused.
+            </p>
+            <p className="mt-5 font-mono text-[0.7rem] tracking-[0.18em] text-teal uppercase">
               Vision · Healing · Action · Results
             </p>
           </div>
 
           {/* Connect */}
           <div>
-            <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-ink-soft">
+            <p className="font-mono text-[0.66rem] tracking-[0.18em] text-ink-soft uppercase">
               Connect
             </p>
             <ul className="mt-4 space-y-2.5">
@@ -40,7 +42,7 @@ export function SiteFooter() {
 
           {/* Reach */}
           <div>
-            <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-ink-soft">
+            <p className="font-mono text-[0.66rem] tracking-[0.18em] text-ink-soft uppercase">
               Reach Tammy
             </p>
             <ul className="mt-4 space-y-2.5 text-sm text-ink-soft">

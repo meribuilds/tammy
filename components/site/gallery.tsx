@@ -1,3 +1,4 @@
+import { FramedSection } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
 import { CylinderCarousel } from "@/components/ui/cylinder-carousel"
 
@@ -6,16 +7,18 @@ import { CylinderCarousel } from "@/components/ui/cylinder-carousel"
  * before the CTA so the last thing read is the ask and the last thing seen is
  * the outcome.
  *
- * The carousel takes plain <img> tags, so the shots are routed through Next's
- * image optimizer by hand — twelve untouched JPEGs would be ~3MB on the wire.
+ * The carousel routes these through next/image itself — twelve untouched JPEGs
+ * would be ~3MB on the wire, and hand-writing /_next/image URLs here meant the
+ * optimizer's own rules (allowed widths, allowed qualities) were being guessed
+ * at rather than enforced.
  */
-const shot = (n: number) =>
-  `/_next/image?url=${encodeURIComponent(`/assets/image-${n}.jpg`)}&w=640&q=70`
-
 const SHOTS = [
   { n: 1, alt: "Groundwork in the grass, horse lowering its head to meet her" },
   { n: 4, alt: "Rider and horse face to face in a rope halter, both at ease" },
-  { n: 5, alt: "Rider in the saddle with both arms up, reins dropped, autumn woods" },
+  {
+    n: 5,
+    alt: "Rider in the saddle with both arms up, reins dropped, autumn woods",
+  },
   { n: 3, alt: "Three riders in open water, arms thrown up" },
   { n: 13, alt: "Chestnut horse trotting through snow at golden hour" },
   { n: 2, alt: "Rider standing beside her grazing horse by a red barn" },
@@ -27,22 +30,26 @@ const SHOTS = [
   { n: 9, alt: "Rider laughing in the saddle after a round" },
 ]
 
-const IMAGES = SHOTS.map((s) => ({ src: shot(s.n), alt: s.alt }))
+const IMAGES = SHOTS.map((s) => ({
+  src: `/assets/image-${s.n}.jpg`,
+  alt: s.alt,
+}))
 
 export function Gallery() {
   return (
-    <section className="relative overflow-hidden border-y border-line bg-cream">
+    <FramedSection frameClassName="bg-cream">
       <div className="relative mx-auto max-w-7xl px-5 pt-20 text-center sm:px-8 sm:pt-28 lg:px-12">
         <Reveal>
           <p className="kicker">The other side of it</p>
-          <h2 className="mx-auto mt-5 max-w-2xl text-balance text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08]">
+          <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08] text-balance">
             What getting back looks like.
           </h2>
         </Reveal>
       </div>
 
-      {/* full-bleed — breaks out to the viewport regardless of any container */}
-      <Reveal delay={120} className="relative left-1/2 w-screen -translate-x-1/2">
+      {/* the frame is the bleed now — the carousel fills it edge to edge rather
+          than breaking out to the viewport behind it */}
+      <Reveal delay={120} className="relative w-full">
         <CylinderCarousel
           images={IMAGES}
           animationDuration={44}
@@ -51,6 +58,7 @@ export function Gallery() {
              win on !important — cards must shrink or they overrun small screens */
           containerClassName="[--w:8.5rem]! sm:[--w:11rem]! lg:[--w:14rem]!"
           cardClassName="shadow-[0_24px_50px_-30px_rgba(18,58,64,0.8)]"
+          imageSizes="(min-width: 1024px) 224px, (min-width: 640px) 176px, 136px"
           /* props spread over the component's own style, so every value has to
              be restated here.
              perspective: the cylinder's radius grows with card count — twelve
@@ -75,6 +83,6 @@ export function Gallery() {
           </p>
         </Reveal>
       </div>
-    </section>
+    </FramedSection>
   )
 }

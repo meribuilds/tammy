@@ -1,10 +1,14 @@
 import { BookCall, TailoredQuote } from "@/components/site/cta"
+import { FramedSection } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
 import { Horseshoe } from "@/components/site/motifs"
 
 export function CtaBand() {
   return (
-    <section className="relative overflow-hidden bg-teal-ink text-cream">
+    <FramedSection
+      className="pb-12 sm:pb-16"
+      frameClassName="bg-teal-ink text-cream"
+    >
       {/* gold halo above, cool glow below — composed, not blotchy */}
       <div
         aria-hidden
@@ -30,15 +34,14 @@ export function CtaBand() {
         <Reveal>
           <p className="kicker text-gold-soft">Your next ride starts here</p>
 
-
-
           <p className="mt-7 text-[clamp(2.2rem,6vw,3.8rem)] leading-[1.03] font-bold tracking-[-0.035em] text-cream">
-            Let&rsquo;s build your <span className="text-gold-soft">brave</span>.
+            Let&rsquo;s build your <span className="text-gold-soft">brave</span>
+            .
           </p>
 
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-cream/80">
-            Book a call and we&rsquo;ll map the memory that&rsquo;s keeping you out
-            of the saddle &mdash; and the path back in.
+            Book a call and we&rsquo;ll map the memory that&rsquo;s keeping you
+            out of the saddle &mdash; and the path back in.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-3.5">
@@ -46,12 +49,12 @@ export function CtaBand() {
             <TailoredQuote className="w-full justify-center border-cream/30 bg-teal text-cream hover:border-cream hover:bg-teal-lt sm:w-auto" />
           </div>
 
-          <p className="mt-8 font-mono text-[0.66rem] uppercase tracking-[0.18em] text-cream/55">
+          <p className="mt-8 font-mono text-[0.66rem] tracking-[0.18em] text-cream/55 uppercase">
             Private<span className="text-gold-soft"> · </span>By quote
             <span className="text-gold-soft"> · </span>No pressure
           </p>
         </Reveal>
       </div>
-    </section>
+    </FramedSection>
   )
 }

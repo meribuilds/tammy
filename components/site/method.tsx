@@ -1,3 +1,4 @@
+import { FramedSection } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
 import { Bit, Neuron, ReinSynapse } from "@/components/site/motifs"
 import { CHAIN } from "@/lib/site"
@@ -21,7 +22,7 @@ const BEATS = [
 
 export function Method() {
   return (
-    <section id="method" className="relative overflow-hidden bg-teal-ink text-cream">
+    <FramedSection id="method" frameClassName="bg-teal-ink text-cream">
       {/* watercolor atmosphere */}
       <div
         aria-hidden
@@ -35,8 +36,9 @@ export function Method() {
       <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <Reveal>
           <p className="kicker text-gold">The method</p>
-          <h2 className="mt-5 max-w-3xl text-balance text-[clamp(2rem,4.6vw,3.2rem)] leading-[1.06] text-cream">
-            Right effort. <span className="text-gold-soft">Wrong direction.</span>
+          <h2 className="mt-5 max-w-3xl text-[clamp(2rem,4.6vw,3.2rem)] leading-[1.06] text-balance text-cream">
+            Right effort.{" "}
+            <span className="text-gold-soft">Wrong direction.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/75">
             Pushing through fear never clears it. We work at the level where the
@@ -58,7 +60,7 @@ export function Method() {
                       <Motif className="size-7" strokeWidth={1.4} />
                     )}
                   </span>
-                  <p className="mt-5 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-gold-soft">
+                  <p className="mt-5 font-mono text-[0.68rem] tracking-[0.16em] text-gold-soft uppercase">
                     {b.k}
                   </p>
                   <p className="mt-4 leading-relaxed text-cream/85">{b.t}</p>
@@ -76,24 +78,27 @@ export function Method() {
               className="mx-auto h-9 w-auto text-teal"
               strokeWidth={1.6}
             />
-            <p className="mt-5 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-teal">
+            <p className="mt-5 font-mono text-[0.68rem] tracking-[0.16em] text-teal uppercase">
               Her signature chain
             </p>
             <div className="reins mt-6" data-reins>
               {CHAIN.map((word, i) => (
                 <span key={word} className="contents">
                   <span className="reins__node">{word}</span>
-                  {i < CHAIN.length - 1 && <span className="reins__link" aria-hidden />}
+                  {i < CHAIN.length - 1 && (
+                    <span className="reins__link" aria-hidden />
+                  )}
                 </span>
               ))}
             </div>
             <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-ink-soft">
-              Change the memory and the whole chain changes with it: the thoughts,
-              the feelings, and what your body does at the mounting block.
+              Change the memory and the whole chain changes with it: the
+              thoughts, the feelings, and what your body does at the mounting
+              block.
             </p>
           </div>
         </Reveal>
       </div>
-    </section>
+    </FramedSection>
   )
 }

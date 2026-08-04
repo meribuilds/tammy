@@ -96,7 +96,11 @@ export function GsapProvider() {
           scrollTrigger: { trigger: reins, start: "top 78%", once: true },
         })
         nodes.forEach((n, i) => {
-          tl.to(n, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, i * 0.28)
+          tl.to(
+            n,
+            { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+            i * 0.28
+          )
           if (links[i])
             tl.to(
               links[i],
@@ -134,7 +138,6 @@ export function GsapProvider() {
           }
         )
       })
-
     })
 
     return () => {
