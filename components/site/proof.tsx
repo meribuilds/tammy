@@ -23,7 +23,7 @@ export function Proof() {
       <Measure className="py-20 sm:py-28">
         <Reveal className="text-center">
           <p className="kicker">What she brings</p>
-          <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08] text-balance">
+          <h2 className="headline mx-auto mt-5 max-w-2xl">
             Six pillars behind every ride back.
           </h2>
         </Reveal>
@@ -40,14 +40,16 @@ export function Proof() {
                   key={p}
                   className="group flex items-start gap-4 border-t border-line pt-5"
                 >
-                  <span className="motif-badge flex size-11 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-gold/[0.06] text-gold group-hover:border-gold/60 group-hover:bg-gold/10">
+                  <span className="motif-badge flex size-11 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-gold/[0.06] text-gold-ink group-hover:border-gold/60 group-hover:bg-gold/10">
                     <Motif className="size-5" />
                   </span>
                   <div className="pt-0.5">
-                    <span className="font-mono text-[0.68rem] leading-none tracking-[0.12em] text-gold tabular-nums">
+                    {/* --gold failed AA at this size on paper; --gold-ink is the
+                        same hue at 4.6:1 */}
+                    <span className="label-xs text-gold-ink tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="mt-1 block text-lg leading-tight text-teal-ink">
+                    <span className="mt-1 block text-lg leading-snug font-medium text-teal-ink">
                       {p}
                     </span>
                   </div>

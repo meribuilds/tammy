@@ -36,12 +36,14 @@ export function CtaBand() {
         <Reveal>
           <p className="kicker text-gold-soft">Your next ride starts here</p>
 
-          <p className="mt-7 text-[clamp(2.2rem,6vw,3.8rem)] leading-[1.03] font-bold tracking-[-0.035em] text-cream">
+          {/* the page's closing statement was a <p> styled to look like a
+              headline — it never appeared in the document outline */}
+          <h2 className="display mt-7 text-cream">
             Let&rsquo;s build your <span className="text-gold-soft">brave</span>
             .
-          </p>
+          </h2>
 
-          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-cream/80">
+          <p className="lead mx-auto mt-5 max-w-xl text-cream/85">
             Book a call and we&rsquo;ll map the memory that&rsquo;s keeping you
             out of the saddle, and the path back in.
           </p>
@@ -51,7 +53,8 @@ export function CtaBand() {
             <TailoredQuote className="w-full justify-center border-cream/30 bg-teal text-cream hover:border-cream hover:bg-teal-lt sm:w-auto" />
           </div>
 
-          <p className="mt-8 font-mono text-[0.66rem] tracking-[0.18em] text-cream/55 uppercase">
+          {/* /55 blends to ~4.0:1 against teal-ink — under AA at this size */}
+          <p className="label-xs mt-8 text-cream/75">
             Private<span className="text-gold-soft"> · </span>By quote
             <span className="text-gold-soft"> · </span>No pressure
           </p>

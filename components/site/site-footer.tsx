@@ -15,16 +15,14 @@ export function SiteFooter() {
               Confidence coaching for riders who&rsquo;ve lost their nerve. The
               Neuro Reset method: science-backed, soul-driven, results-focused.
             </p>
-            <p className="mt-5 font-mono text-[0.7rem] tracking-[0.18em] text-teal uppercase">
+            <p className="label mt-5 text-teal">
               Vision · Healing · Action · Results
             </p>
           </div>
 
           {/* Connect */}
           <div>
-            <p className="font-mono text-[0.66rem] tracking-[0.18em] text-ink-soft uppercase">
-              Connect
-            </p>
+            <p className="label-xs text-ink-soft">Connect</p>
             <ul className="mt-4 space-y-2.5">
               {SOCIALS.map((s) => (
                 <li key={s.label}>
@@ -43,9 +41,7 @@ export function SiteFooter() {
 
           {/* Reach */}
           <div>
-            <p className="font-mono text-[0.66rem] tracking-[0.18em] text-ink-soft uppercase">
-              Reach Tammy
-            </p>
+            <p className="label-xs text-ink-soft">Reach Tammy</p>
             <ul className="mt-4 space-y-2.5 text-sm text-ink-soft">
               <li>{CONTACT.location}</li>
               <li>
@@ -61,10 +57,10 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-[0.66rem] tracking-[0.08em] text-ink-soft">
+          <p className="meta text-ink-soft">
             © {new Date().getFullYear()} Tammy Magnuson · Building Brave Riders
           </p>
-          <p className="font-mono text-[0.66rem] tracking-[0.08em] text-ink-soft">
+          <p className="meta text-ink-soft">
             No BS coaching. Real tools. Real transformation.
           </p>
         </div>

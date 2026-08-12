@@ -11,11 +11,20 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* type roles — one sans carries display, UI and body; mono handles labels */
-  --font-display: var(--font-heading);       /* Plus Jakarta Sans — headlines */
-  --font-heading: var(--font-heading);       /* Plus Jakarta Sans — UI sans   */
-  --font-sans: var(--font-heading);          /* Plus Jakarta Sans — body      */
-  --font-mono: var(--font-mono);             /* Geist Mono — labels           */
+  /* Type roles — one sans carries display, UI and body; mono handles labels.
+     These point at the raw next/font variables (--font-jakarta, --font-geist-mono)
+     rather than at themselves: `--font-sans: var(--font-sans)` resolves against
+     the same :root it is declared on, which is circular and therefore invalid.
+     Fallback stacks are mandatory here — without one, a font that fails to load
+     leaves `font-family` invalid and the page drops to the UA serif. */
+  --font-sans:
+    var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  --font-display:
+    var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  --font-mono:
+    var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* brand color utilities (bg-teal, text-gold, …) */
   --color-paper: var(--paper);
@@ -28,6 +37,7 @@
   --color-teal-ink: var(--teal-ink);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
+  --color-gold-ink: var(--gold-ink);
   --color-line: var(--line);
 
   /* shadcn semantic tokens */
@@ -50,17 +60,18 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Radius scale. --radius-3xl has to be declared: overriding only up to 2xl
+     left `rounded-3xl` on Tailwind's untouched 1.5rem default, i.e. *squarer*
+     than the 2xl above it. The scale must stay monotonic. */
   --radius-sm: calc(var(--radius) * 0.5);
   --radius-md: calc(var(--radius) * 0.7);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.9);
+  --radius-xl: calc(var(--radius) * 1.35);
+  --radius-2xl: calc(var(--radius) * 1.75);
+  --radius-3xl: calc(var(--radius) * 2.2);
 }
 
 :root {
-  /* headline role — no separate display face, it's the same sans set heavier */
-  --font-display: var(--font-heading);
-
   /* raw brand palette (from poster) */
   --paper: #f3eee3;
   --paper-2: #fbf8f1;
@@ -72,6 +83,10 @@
   --teal-ink: #123a40;
   --gold: #b0844a;
   --gold-soft: #c79b5f;
+  /* Gold reads at 2.9:1 on paper — fine as a fill or a rule, a WCAG failure as
+     text. This is the same hue walked down to 4.6:1 for type on light ground.
+     --gold / --gold-soft stay the on-dark and non-text golds. */
+  --gold-ink: #8a6431;
   --line: #e2dacb;
 
   /* shadcn semantic mapping */
@@ -103,6 +118,9 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    /* belt and braces: no decorative overhang may ever hand the page a
+       horizontal scrollbar. `clip` (not `hidden`) keeps position:sticky working. */
+    overflow-x: clip;
   }
   body {
     @apply bg-background text-foreground;
@@ -110,9 +128,16 @@
     background-image:
       radial-gradient(52rem 40rem at 8% -8%, color-mix(in oklab, var(--teal) 8%, transparent), transparent 60%),
       radial-gradient(46rem 34rem at 108% 4%, color-mix(in oklab, var(--gold) 9%, transparent), transparent 62%);
-    background-attachment: fixed;
     text-rendering: optimizeLegibility;
     position: relative;
+    overflow-x: clip;
+  }
+  /* A fixed attachment repaints the whole viewport on every scroll frame, and
+     iOS Safari resolves it against the wrong box entirely. Desktop only. */
+  @media (min-width: 1024px) {
+    body {
+      background-attachment: fixed;
+    }
   }
   /* subtle horseshoe wallpaper — sits under the grain, only on paper areas */
   body::before {
@@ -140,6 +165,14 @@
     background: color-mix(in oklab, var(--gold) 32%, transparent);
     color: var(--ink);
   }
+  /* `* { outline-ring/50 }` only sets the outline *colour* — with no width there
+     is nothing to see. Anything that draws its own ring opts out with
+     `focus-visible:outline-none`, so this is the floor, not a duplicate. */
+  :focus-visible {
+    outline: 2px solid var(--teal-lt);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
   /* One sans carries the whole page, so hierarchy has to come from weight and
      tracking: the bigger the type, the tighter and heavier it is set. */
   h1, h2, h3 {
@@ -157,19 +190,114 @@
 }
 
 @layer components {
-  /* eyebrow / kicker */
+  /* ---------------------------------------------------------------------
+     Type scale.
+
+     One typeface carries the page, so every step has to be nameable or it
+     drifts: the four section headlines had four different clamps and the mono
+     labels had eight different sizes across three trackings for what is really
+     three jobs. Roles live here; sections just name the role.
+     --------------------------------------------------------------------- */
+
+  /* hero + closing statement — the two moments that own their screen */
+  .display {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 7vw, 4.4rem);
+    line-height: 1.03;
+    letter-spacing: -0.038em;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+  /* every section headline, one size */
+  .headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4.4vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+  /* card titles */
+  .card-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.2vw, 1.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+  /* the paragraph directly under a headline */
+  .lead {
+    font-size: clamp(1.05rem, 1.1rem + 0.2vw, 1.175rem);
+    line-height: 1.65;
+  }
+  .pull-quote {
+    font-size: clamp(1.3rem, 2.6vw, 1.85rem);
+    line-height: 1.32;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+
+  /* eyebrow / kicker — the section-opening tag */
   .kicker {
     font-family: var(--font-mono);
     font-size: 0.72rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
+    line-height: 1.4;
     color: var(--teal);
   }
+  /* mono micro-labels: nav, card eyebrows, column heads */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+  /* the tier down: captions, badges, footnotes */
+  .label-xs {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+  /* legal / colophon — mono but not shouted */
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+
   /* wordmark / signature lines */
   .script {
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.02em;
+  }
+
+  /* keyboard users get to the content without tabbing the whole nav */
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    /* --radius, not --radius-lg: the scale lives in `@theme inline`, which
+       inlines into utilities rather than guaranteeing a :root variable */
+    border-radius: var(--radius);
+    background: var(--teal-ink);
+    color: var(--paper-2);
+    padding: 0.7rem 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transform: translateY(-250%);
+    transition: transform 0.2s ease;
+  }
+  .skip-link:focus {
+    transform: none;
   }
 
   /* Signature "reins" method chain ------------------------------------- */
@@ -182,7 +310,7 @@
   }
   .reins__node {
     font-family: var(--font-display);
-    font-size: clamp(1.15rem, 2.6vw, 1.85rem);
+    font-size: clamp(1.05rem, 1.7vw, 1.6rem);
     font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--teal-ink);
@@ -211,19 +339,22 @@
     background: var(--gold);
     transform: translateX(-50%);
   }
-  /* Desktop: the rein runs left → right across the chain. */
-  @media (min-width: 640px) {
+  /* Desktop: the rein runs left → right across the chain.
+     This used to turn at 640px, where five nowrap nodes plus four links want
+     ~530px inside a ~490px card — the band's overflow:hidden simply cut the
+     last word off. The row needs a real 1024px to breathe. */
+  @media (min-width: 1024px) {
     .reins {
       flex-direction: row;
       justify-content: center;
       flex-wrap: nowrap;
     }
     .reins__link {
-      flex: 1 1 24px;
-      min-width: 22px;
+      flex: 1 1 20px;
+      min-width: 16px;
       width: auto;
       height: 2px;
-      margin: 0 clamp(10px, 1.6vw, 22px);
+      margin: 0 clamp(8px, 1.3vw, 20px);
       background: repeating-linear-gradient(
         90deg,
         var(--gold) 0 8px,

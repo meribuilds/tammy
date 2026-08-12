@@ -14,7 +14,7 @@ export default function Page() {
     <>
       <GsapProvider />
       <SiteNav />
-      <main>
+      <main id="main">
         <Hero />
         <Knot />
         <Method />

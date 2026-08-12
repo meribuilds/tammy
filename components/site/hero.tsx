@@ -49,7 +49,9 @@ export function Hero() {
               </Reveal>
 
               <Reveal delay={90}>
-                <h1 className="mt-5 text-[clamp(2.3rem,6vw,4.6rem)] leading-[1.02] text-balance text-paper-2 sm:mt-6">
+                {/* the 6vw floor never bit until 613px, so every phone got the
+                    same oversized 2.3rem block — .display leans on vw sooner */}
+                <h1 className="display mt-5 text-paper-2 sm:mt-6">
                   You&rsquo;re not a nervous rider.{" "}
                   <span className="text-gold-soft">
                     Your brain is guarding a memory.
@@ -58,7 +60,7 @@ export function Hero() {
               </Reveal>
 
               <Reveal delay={180}>
-                <p className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-paper/85 sm:mt-6">
+                <p className="lead mx-auto mt-5 max-w-lg text-paper/90 sm:mt-6">
                   Clear the fear where it lives, so you ride from calm, not
                   force.
                 </p>
@@ -72,7 +74,9 @@ export function Hero() {
               </Reveal>
 
               <Reveal delay={340}>
-                <p className="mt-8 hidden font-mono text-[0.72rem] tracking-[0.16em] text-paper/70 uppercase sm:block">
+                {/* was hidden below 640px, which dropped the page's only trust
+                    signal on the devices most of this traffic arrives on */}
+                <p className="label mt-8 text-paper/80">
                   Science-backed<span className="text-gold-soft"> · </span>
                   Soul-driven
                   <span className="text-gold-soft"> · </span>Results-focused

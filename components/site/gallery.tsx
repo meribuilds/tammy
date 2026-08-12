@@ -41,7 +41,7 @@ export function Gallery() {
       <Measure className="relative pt-20 text-center sm:pt-28">
         <Reveal>
           <p className="kicker">The other side of it</p>
-          <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08] text-balance">
+          <h2 className="headline mx-auto mt-5 max-w-2xl">
             What getting back looks like.
           </h2>
         </Reveal>

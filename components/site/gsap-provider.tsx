@@ -85,7 +85,9 @@ export function GsapProvider() {
       // Horizontal on desktop (draw left→right), vertical on mobile (draw down).
       const reins = document.querySelector<HTMLElement>("[data-reins]")
       if (reins) {
-        const horizontal = matchMedia("(min-width: 640px)").matches
+        // Must track the .reins breakpoint in globals.css — draw the wrong axis
+        // and the links scale from zero along a dimension that isn't animating.
+        const horizontal = matchMedia("(min-width: 1024px)").matches
         const drawAxis = horizontal ? "scaleX" : "scaleY"
         const origin = horizontal ? "left center" : "center top"
         const nodes = reins.querySelectorAll(".reins__node")

@@ -14,10 +14,10 @@ export function Offer() {
       <Measure className="relative py-20 sm:py-28">
         <Reveal className="text-center">
           <p className="kicker">Work with Tammy</p>
-          <h2 className="mx-auto mt-5 max-w-2xl text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08] text-balance">
+          <h2 className="headline mx-auto mt-5 max-w-2xl">
             Three ways in. All private, all tailored.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-ink-soft">
+          <p className="lead mx-auto mt-5 max-w-xl text-ink-soft">
             Her work is premium and built around you, so there&rsquo;s no
             checkout and no public price. The call is where we find the right
             fit.
@@ -28,15 +28,15 @@ export function Offer() {
           {TIERS.map((tier, i) => (
             <Reveal key={tier.name} delay={i * 100}>
               <article className="group flex h-full flex-col rounded-3xl border border-line bg-paper-2 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-teal/40 hover:shadow-[0_28px_60px_-40px_rgba(18,58,64,0.6)]">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[0.64rem] tracking-[0.16em] text-teal uppercase">
-                    {tier.tag}
-                  </span>
-                  <span className="rounded-full border border-gold/40 px-2.5 py-0.5 font-mono text-[0.58rem] tracking-[0.14em] text-gold uppercase">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="label-xs text-teal">{tier.tag}</span>
+                  {/* was 0.58rem in --gold, which is 2.9:1 on this cream — the
+                      smallest type on the page in the lowest-contrast colour */}
+                  <span className="label-xs rounded-full border border-gold/40 bg-gold/[0.07] px-2.5 py-0.5 text-gold-ink">
                     By quote
                   </span>
                 </div>
-                <h3 className="mt-5 text-2xl text-teal-ink">{tier.name}</h3>
+                <h3 className="card-title mt-5 text-teal-ink">{tier.name}</h3>
                 <p className="mt-3 flex-1 leading-relaxed text-ink-soft">
                   {tier.body}
                 </p>

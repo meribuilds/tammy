@@ -23,7 +23,7 @@ export function Knot() {
       <Measure className="py-20 sm:py-28">
         <Reveal className="text-center">
           <p className="kicker">If this is you</p>
-          <h2 className="mx-auto mt-5 max-w-3xl text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.08] text-balance">
+          <h2 className="headline mx-auto mt-5 max-w-3xl">
             You still love horses. Your body just won&rsquo;t trust the saddle
             again.
           </h2>
@@ -31,7 +31,7 @@ export function Knot() {
 
         <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           <Reveal className="max-w-xl">
-            <p className="text-lg leading-relaxed text-ink-soft">
+            <p className="lead text-ink-soft">
               You used to love riding, and now you freeze at the mounting block.
               Maybe there was a fall, a bolt, or a bad scare. Maybe the nerves
               crept in with age. You still love horses. You just can&rsquo;t get
@@ -39,9 +39,7 @@ export function Knot() {
             </p>
 
             <div className="mt-9">
-              <p className="font-mono text-[0.7rem] tracking-[0.16em] text-teal uppercase">
-                What you&rsquo;ve tried
-              </p>
+              <p className="label text-teal">What you&rsquo;ve tried</p>
               <ul className="mt-4 flex flex-wrap gap-2.5">
                 {TRIED.map((t) => (
                   <li
@@ -66,7 +64,7 @@ export function Knot() {
             out there, which is the whole point of this section. */}
           <div className="flex flex-col gap-6">
             <Reveal delay={80}>
-              <div className="relative aspect-[3/2] overflow-hidden rounded-[1.25rem] border border-line/60 sm:rounded-[1.75rem]">
+              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-line/60 sm:rounded-3xl">
                 <Image
                   src="/assets/image-16.jpg"
                   alt="Riders halted side by side in the collecting ring, reins gathered, waiting"
@@ -85,12 +83,12 @@ export function Knot() {
                   strokeWidth={1.4}
                   className="absolute top-6 right-7 size-9 text-gold/35"
                 />
-                <blockquote className="relative text-[clamp(1.35rem,2.6vw,1.9rem)] leading-snug font-medium tracking-[-0.02em] text-teal-ink">
+                <blockquote className="pull-quote relative text-teal-ink">
                   Everyone keeps telling me to just get back on. I try, and my
                   body won&rsquo;t let me. I feel ridiculous being scared of
                   something I used to do without thinking.
                 </blockquote>
-                <figcaption className="mt-6 font-mono text-[0.68rem] tracking-[0.16em] text-ink-soft uppercase">
+                <figcaption className="label-xs mt-6 text-ink-soft">
                   The rider Tammy helps
                 </figcaption>
               </figure>

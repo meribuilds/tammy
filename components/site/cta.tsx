@@ -30,7 +30,11 @@ export function BookCall({
       )}
     >
       {label}
-      <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      <span className="sr-only"> (opens Tammy&rsquo;s calendar in a new tab)</span>
+      <ArrowUpRight
+        aria-hidden
+        className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      />
     </a>
   )
 }
@@ -53,8 +57,12 @@ export function TailoredQuote({ className }: { className?: string }) {
         className
       )}
     >
-      <Phone className="size-4 transition-transform duration-200 group-hover:-rotate-12" />
+      <Phone
+        aria-hidden
+        className="size-4 transition-transform duration-200 group-hover:-rotate-12"
+      />
       Call for a tailored quote
+      <span className="sr-only"> (opens Tammy&rsquo;s calendar in a new tab)</span>
     </a>
   )
 }

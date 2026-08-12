@@ -36,11 +36,12 @@ export function Method() {
       <Measure className="relative py-20 sm:py-28">
         <Reveal className="text-center">
           <p className="kicker text-gold">The method</p>
-          <h2 className="mx-auto mt-5 max-w-3xl text-[clamp(2rem,4.6vw,3.2rem)] leading-[1.06] text-balance text-cream">
+          {/* was a fourth, larger h2 clamp — section headlines are one size */}
+          <h2 className="headline mx-auto mt-5 max-w-3xl text-cream">
             Right effort.{" "}
             <span className="text-gold-soft">Wrong direction.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/75">
+          <p className="lead mx-auto mt-6 max-w-2xl text-cream/80">
             Pushing through fear never clears it. We work at the level where the
             memory actually lives, and rewire it at the source.
           </p>
@@ -52,7 +53,7 @@ export function Method() {
             const isSignature = i === BEATS.length - 1
             return (
               <Reveal key={b.k} delay={i * 100}>
-                <div className="h-full rounded-2xl border border-cream/12 bg-cream/[0.05] p-7 backdrop-blur-sm">
+                <div className="h-full rounded-3xl border border-cream/12 bg-cream/[0.05] p-7 backdrop-blur-sm">
                   <span className="text-gold-soft">
                     {isSignature ? (
                       <ReinSynapse pulse className="h-8 w-auto" />
@@ -60,9 +61,7 @@ export function Method() {
                       <Motif className="size-7" strokeWidth={1.4} />
                     )}
                   </span>
-                  <p className="mt-5 font-mono text-[0.68rem] tracking-[0.16em] text-gold-soft uppercase">
-                    {b.k}
-                  </p>
+                  <p className="label mt-5 text-gold-soft">{b.k}</p>
                   <p className="mt-4 leading-relaxed text-cream/85">{b.t}</p>
                 </div>
               </Reveal>
@@ -78,9 +77,7 @@ export function Method() {
               className="mx-auto h-9 w-auto text-teal"
               strokeWidth={1.6}
             />
-            <p className="mt-5 font-mono text-[0.68rem] tracking-[0.16em] text-teal uppercase">
-              Her signature chain
-            </p>
+            <p className="label mt-5 text-teal">Her signature chain</p>
             <div className="reins mt-6" data-reins>
               {CHAIN.map((word, i) => (
                 <span key={word} className="contents">

@@ -22,10 +22,12 @@ export function SiteNav() {
 
   // While the sheet is open: lock scroll, close on Escape, and close if the
   // viewport grows to the desktop breakpoint (where the sheet no longer exists).
+  // 768 must match the md: switch below — at 640 the wordmark, both links and
+  // the button wanted ~650px of a 592px pill and collided.
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false)
-    const onResize = () => window.innerWidth >= 640 && setOpen(false)
+    const onResize = () => window.innerWidth >= 768 && setOpen(false)
     document.addEventListener("keydown", onKey)
     window.addEventListener("resize", onResize)
     document.body.style.overflow = "hidden"
@@ -48,7 +50,7 @@ export function SiteNav() {
         <a
           href="#top"
           onClick={() => setOpen(false)}
-          className="group flex items-center gap-2.5"
+          className="group flex items-center gap-2.5 rounded-full"
         >
           <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-teal-ink text-gold-soft transition-transform duration-300 group-hover:-rotate-6">
             <Horseshoe className="size-[18px]" strokeWidth={1.6} />
@@ -59,12 +61,12 @@ export function SiteNav() {
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-6 sm:flex">
+        <div className="hidden items-center gap-6 md:flex">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="font-mono text-[0.7rem] tracking-[0.16em] text-ink-soft uppercase hover:text-teal"
+              className="label rounded-sm text-ink-soft transition-colors hover:text-teal"
             >
               {l.label}
             </a>
@@ -79,7 +81,7 @@ export function SiteNav() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="flex size-9 items-center justify-center rounded-full text-teal-ink hover:bg-teal/5 focus-visible:ring-2 focus-visible:ring-teal focus-visible:outline-none sm:hidden"
+          className="flex size-11 items-center justify-center rounded-full text-teal-ink hover:bg-teal/5 md:hidden"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
@@ -91,11 +93,11 @@ export function SiteNav() {
           <div
             aria-hidden
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-40 bg-ink/25 backdrop-blur-[2px] sm:hidden"
+            className="fixed inset-0 z-40 bg-ink/25 backdrop-blur-[2px] md:hidden"
           />
           <div
             id="mobile-menu"
-            className="absolute inset-x-3 top-full z-50 mt-2 origin-top animate-in rounded-3xl border border-line bg-paper p-3 shadow-[0_24px_44px_-26px_rgba(18,58,64,0.6)] duration-200 fade-in slide-in-from-top-2 sm:hidden"
+            className="absolute inset-x-3 top-full z-50 mt-2 origin-top animate-in rounded-3xl border border-line bg-paper p-3 shadow-[0_24px_44px_-26px_rgba(18,58,64,0.6)] duration-200 fade-in slide-in-from-top-2 md:hidden"
           >
             <div className="flex flex-col px-1">
               {LINKS.map((l) => (
@@ -103,7 +105,7 @@ export function SiteNav() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="border-b border-line/60 py-3.5 font-mono text-[0.74rem] tracking-[0.18em] text-teal-ink uppercase transition-colors hover:text-teal"
+                  className="label border-b border-line/60 py-4 text-teal-ink transition-colors hover:text-teal"
                 >
                   {l.label}
                 </a>
