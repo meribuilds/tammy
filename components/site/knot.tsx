@@ -29,7 +29,7 @@ export function Knot() {
         </Reveal>
 
         <Reveal className="mt-14 text-center">
-          <p className="kicker">If this is you</p>
+          <p className="kicker text-base">If this is you</p>
           <h2 className="headline mx-auto mt-5 max-w-3xl">
             You still love horses. You&rsquo;re struggling to get back in the
             saddle again.
@@ -45,7 +45,7 @@ export function Knot() {
             </p>
 
             <div className="mt-9">
-              <p className="label text-teal">What you&rsquo;ve tried</p>
+              <p className="label text-base text-teal">What you&rsquo;ve tried</p>
               <ul className="mt-4 flex flex-wrap gap-2.5">
                 {TRIED.map((t) => (
                   <li
