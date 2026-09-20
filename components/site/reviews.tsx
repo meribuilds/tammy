@@ -21,17 +21,21 @@ export function Reviews() {
 
         <div className="mt-14 flex flex-wrap justify-center gap-6">
           {REVIEWS.map((r, i) => (
-            <Reveal key={r.author} delay={i * 100} className="w-full max-w-xl">
-              <figure className="relative h-full rounded-3xl border border-line bg-paper-2 p-8 sm:p-10">
+            <Reveal
+              key={r.author}
+              delay={i * 100}
+              className="w-full sm:max-w-[25.5rem]"
+            >
+              <figure className="relative h-full rounded-3xl border border-line bg-paper-2 p-7 sm:p-8">
                 <Quote
                   aria-hidden
                   strokeWidth={1.4}
-                  className="absolute top-6 right-7 size-9 text-gold/35"
+                  className="absolute top-6 right-7 size-7 text-gold/35"
                 />
-                <blockquote className="pull-quote relative text-teal-ink">
+                <blockquote className="relative text-[0.95rem] leading-relaxed text-ink/85">
                   {r.quote}
                 </blockquote>
-                <figcaption className="label-xs mt-6 text-ink-soft">
+                <figcaption className="label-xs mt-5 text-ink-soft">
                   {r.author}
                 </figcaption>
               </figure>
