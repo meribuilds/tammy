@@ -1,4 +1,4 @@
-import { BookCall, TailoredQuote } from "@/components/site/cta"
+import { BookCall, FreeGuide } from "@/components/site/cta"
 import { FramedSection, Measure } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
 import { Horseshoe } from "@/components/site/motifs"
@@ -50,7 +50,7 @@ export function CtaBand() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-3.5">
             <BookCall className="w-full justify-center sm:w-auto" />
-            <TailoredQuote className="w-full justify-center border-teal-ink/30 bg-teal-ink text-cream hover:border-teal-ink hover:bg-teal sm:w-auto" />
+            <FreeGuide className="w-full justify-center border-teal-ink/30 bg-teal-ink text-cream hover:border-teal-ink hover:bg-teal sm:w-auto" />
           </div>
 
           <p className="label-xs mt-8 text-ink/75">
