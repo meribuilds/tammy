@@ -24,7 +24,7 @@ export function Proof() {
         <Reveal className="text-center">
           <p className="kicker">What she brings</p>
           <h2 className="headline mx-auto mt-5 max-w-2xl">
-            Six pillars behind every ride back.
+            Six Pillars.
           </h2>
         </Reveal>
 
