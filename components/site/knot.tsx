@@ -22,6 +22,13 @@ export function Knot() {
       />
       <Measure className="py-20 sm:py-28">
         <Reveal className="text-center">
+          <p className="pull-quote mx-auto max-w-2xl text-teal-ink">
+            This is not therapy. This is not a diet. This is neuroscience
+            working the way your brain actually works.
+          </p>
+        </Reveal>
+
+        <Reveal className="mt-14 text-center">
           <p className="kicker">If this is you</p>
           <h2 className="headline mx-auto mt-5 max-w-3xl">
             You still love horses. Your body just won&rsquo;t trust the saddle
