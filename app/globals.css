@@ -331,9 +331,9 @@
     bottom: -3px;
     width: 7px;
     height: 7px;
-    border-radius: 50%;
-    background: var(--gold);
-    transform: translateX(-50%);
+    border-right: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    transform: translateX(-50%) rotate(45deg);
   }
   /* Desktop: the rein runs left → right across the chain.
      This used to turn at 640px, where five nowrap nodes plus four links want
@@ -362,7 +362,7 @@
       right: -3px;
       bottom: auto;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-50%) rotate(-45deg);
     }
   }
 
