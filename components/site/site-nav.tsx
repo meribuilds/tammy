@@ -1,10 +1,10 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 
 import { BookCall } from "@/components/site/cta"
-import { Horseshoe } from "@/components/site/motifs"
 
 const LINKS = [
   { href: "#method", label: "The method" },
@@ -52,9 +52,13 @@ export function SiteNav() {
           onClick={() => setOpen(false)}
           className="group flex items-center gap-2.5 rounded-full"
         >
-          <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-teal-ink text-gold-soft transition-transform duration-300 group-hover:-rotate-6">
-            <Horseshoe className="size-[18px]" strokeWidth={1.6} />
-          </span>
+          <Image
+            src="/assets/logo.png"
+            alt="Neuro Reset"
+            width={112}
+            height={76}
+            className="h-8 w-auto shrink-0 transition-transform duration-300 group-hover:-rotate-6"
+          />
           <span className="script text-[0.95rem] whitespace-nowrap text-teal-ink sm:text-lg">
             Building Brave Riders
           </span>
