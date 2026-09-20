@@ -6,6 +6,7 @@ import { Method } from "@/components/site/method"
 import { Offer } from "@/components/site/offer"
 import { Proof } from "@/components/site/proof"
 import { Gallery } from "@/components/site/gallery"
+import { Reviews } from "@/components/site/reviews"
 import { CtaBand } from "@/components/site/cta-band"
 import { SiteFooter } from "@/components/site/site-footer"
 
@@ -21,6 +22,7 @@ export default function Page() {
         <Offer />
         <Proof />
         <Gallery />
+        <Reviews />
         <CtaBand />
       </main>
       <SiteFooter />

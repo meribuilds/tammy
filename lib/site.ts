@@ -53,3 +53,11 @@ export const PILLARS = [
   "Vision & Growth",
   "Freedom & Legacy",
 ] as const
+
+export const REVIEWS = [
+  {
+    quote:
+      "Took Savannah down to the arena and she was a little spicy at first. I almost didn’t get on her, but I did a few minutes of breathing and imagined some of the things we talked about and we had a great little session!",
+    author: "JG",
+  },
+] as const
