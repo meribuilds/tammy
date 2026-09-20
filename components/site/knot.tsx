@@ -39,10 +39,9 @@ export function Knot() {
         <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           <Reveal className="max-w-xl">
             <p className="lead text-ink-soft">
-              You used to love riding, and now you freeze at the mounting block.
-              Maybe there was a fall, a bolt, or a bad scare. Maybe the nerves
-              crept in with age. You still love horses. You just can&rsquo;t get
-              your body to trust the saddle again.
+              You used to feel free when you were riding, but now you freeze
+              at the mounting block. Maybe there was a fall, a bolt, or a bad
+              scare or maybe the nerves crept in with age.
             </p>
 
             <div className="mt-9">
