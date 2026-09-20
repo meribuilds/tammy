@@ -12,8 +12,9 @@ export function SiteFooter() {
               Building Brave Riders
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-soft">
-              Confidence coaching for riders who&rsquo;ve lost their nerve. The
-              Neuro Reset method: science-backed, soul-driven, results-focused.
+              Confidence coaching for riders who are nervous to ride or show.
+              The Neuro Reset method: science-backed, soul-driven,
+              results-focused.
             </p>
             <p className="label mt-5 text-teal">
               Vision · Healing · Action · Results
