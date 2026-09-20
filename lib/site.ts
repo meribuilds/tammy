@@ -60,4 +60,24 @@ export const REVIEWS = [
       "Took Savannah down to the arena and she was a little spicy at first. I almost didn’t get on her, but I did a few minutes of breathing and imagined some of the things we talked about and we had a great little session!",
     author: "JG",
   },
+  {
+    quote:
+      "Here’s the BEST part of the evening that I forgot to even mention: It wasn’t until I got home that I realized I did not waste one second of my evening comparing myself to women who were thinner or prettier or younger...I was just in the moment. I was absolutely stunned when I realized that. I have compared myself my entire life and come up short every time. To not do that, and to be happy in my appearance and myself, was so freeing and so wonderful.\u{1F60D}",
+    author: "B.K",
+  },
+  {
+    quote:
+      "You block your dream when you allow your fear to grow bigger than your faith” back in January I was out of alignment with my well being mentally and physically. I don’t ever ask for help from anyone, but the universe decided to send me an angel. Thank you from the top and bottom of my heart Tammy Magnuson for helping me repaint my past.",
+    author: "A.G",
+  },
+  {
+    quote:
+      "Tammy was such a delight to work with. She had such a kind spirit but the session was also very concise. I had so much energy after our session. Totally recommend her!",
+    author: "S.P",
+  },
+  {
+    quote:
+      "Tammy is fantastic. She listens well, has a fun attitude and meets you wherever you are at the moment in order to help you overcome your struggle and move forward.",
+    author: "TS",
+  },
 ] as const
