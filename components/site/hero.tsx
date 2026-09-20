@@ -61,8 +61,8 @@ export function Hero() {
 
               <Reveal delay={180}>
                 <p className="lead mx-auto mt-5 max-w-lg text-paper/90 sm:mt-6">
-                  Punishment, criticism, guilt and blame are sabotaging all
-                  the solutions that would work FOR you.
+                  Clear the fear where it lives, so you ride from calm, not
+                  force.
                 </p>
               </Reveal>
 

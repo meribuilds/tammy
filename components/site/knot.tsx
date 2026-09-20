@@ -22,20 +22,26 @@ export function Knot() {
       />
       <Measure className="py-20 sm:py-28">
         <Reveal className="text-center">
+          <p className="pull-quote mx-auto max-w-2xl text-teal-ink">
+            This is not therapy. This is not a lesson. This is neuroscience
+            working the way your brain actually works.
+          </p>
+        </Reveal>
+
+        <Reveal className="mt-14 text-center">
           <p className="kicker">If this is you</p>
           <h2 className="headline mx-auto mt-5 max-w-3xl">
-            You still love horses. Your body just won&rsquo;t trust the saddle
-            again.
+            You still love horses. You&rsquo;re struggling to get back in the
+            saddle again.
           </h2>
         </Reveal>
 
         <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           <Reveal className="max-w-xl">
             <p className="lead text-ink-soft">
-              You used to love riding, and now you freeze at the mounting block.
-              Maybe there was a fall, a bolt, or a bad scare. Maybe the nerves
-              crept in with age. You still love horses. You just can&rsquo;t get
-              your body to trust the saddle again.
+              You used to feel free when you were riding, but now you freeze
+              at the mounting block. Maybe there was a fall, a bolt, or a bad
+              scare or maybe the nerves crept in with age.
             </p>
 
             <div className="mt-9">
