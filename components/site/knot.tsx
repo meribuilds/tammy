@@ -12,6 +12,8 @@ const TRIED = [
   "Calming supplements",
   "Quietly stepping back",
   "New tack",
+  "Body work",
+  "New farrier",
 ]
 
 export function Knot() {
@@ -47,11 +49,11 @@ export function Knot() {
 
             <div className="mt-9">
               <p className="label text-base text-teal">What you&rsquo;ve tried</p>
-              <ul className="mt-4 flex flex-wrap gap-2.5">
+              <ul className="mt-4 flex flex-wrap gap-3">
                 {TRIED.map((t) => (
                   <li
                     key={t}
-                    className="rounded-full border border-line bg-paper-2 px-3.5 py-1.5 text-sm text-ink-soft"
+                    className="rounded-full border border-line bg-paper-2 px-5 py-2.5 text-base text-ink-soft"
                   >
                     {t}
                   </li>
