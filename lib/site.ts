@@ -4,9 +4,7 @@
  * Links verified against the brief; flagged items still need Tammy's confirm.
  */
 
-// Her existing Wix booking calendar. TODO(confirm): right calendar for riding-fear calls.
-export const BOOK_URL =
-  "https://coachtammymagnuson.wixsite.com/neuro-reset/book-online"
+export const BOOK_URL = "https://tidycal.com/coachtammymagnuson1/calmnerves"
 
 export const CONTACT = {
   location: "Glenwood City, WI, USA",
