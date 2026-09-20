@@ -31,8 +31,8 @@ export function Knot() {
         <Reveal className="mt-14 text-center">
           <p className="kicker">If this is you</p>
           <h2 className="headline mx-auto mt-5 max-w-3xl">
-            You still love horses. Your body just won&rsquo;t trust the saddle
-            again.
+            You still love horses. You&rsquo;re struggling to get back in the
+            saddle again.
           </h2>
         </Reveal>
 
