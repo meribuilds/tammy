@@ -121,6 +121,43 @@ export function Bit({ className, strokeWidth }: MotifProps) {
   )
 }
 
+/** The mechanism — a brain and brain stem, wiring re-terminating down the
+ * stalk: where memory reconsolidation actually happens. */
+export function BrainStem({ className, strokeWidth = 1.5 }: MotifProps) {
+  return (
+    <svg
+      viewBox="0 0 100 120"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      {/* cerebrum */}
+      <path d="M20 45C18 28 30 12 50 12C70 12 82 28 80 45C80 50 76 54 70 54H30C24 54 20 50 20 45Z" />
+      {/* central sulcus */}
+      <path d="M50 14V44" />
+      {/* gyri texture */}
+      <path d="M28 23C34 19 40 25 46 21" />
+      <path d="M54 19C60 23 64 18 70 22" />
+      <path d="M29 35C35 31 41 36 47 32" />
+      <path d="M53 32C59 36 65 31 71 35" />
+      {/* brain stem, tapering into the spinal cord */}
+      <path d="M42 54C40 68 44 84 48 100H52C56 84 60 68 58 54Z" />
+      <path d="M50 100V112" />
+      {/* wiring re-terminating along the stem */}
+      <path d="M42 68 36 68M58 68 64 68" />
+      <circle className={dot} cx="34" cy="68" r="1.4" />
+      <circle className={dot} cx="66" cy="68" r="1.4" />
+      <path d="M45 84 38 86M55 84 62 86" />
+      <circle className={dot} cx="36" cy="87" r="1.4" />
+      <circle className={dot} cx="64" cy="87" r="1.4" />
+    </svg>
+  )
+}
+
 /**
  * Signature — the rein becomes a synapse.
  * Left: a buckle + flowing rein (the horse). Right: the strap dissolves into

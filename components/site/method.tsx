@@ -1,6 +1,6 @@
 import { FramedSection, Measure } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
-import { Bit, Neuron, ReinSynapse } from "@/components/site/motifs"
+import { Bit, BrainStem, Neuron, ReinSynapse } from "@/components/site/motifs"
 import { CHAIN } from "@/lib/site"
 
 const BEAT_MOTIFS = [Neuron, Bit, ReinSynapse]
@@ -47,7 +47,23 @@ export function Method() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        {/* The mechanism, plainly — a brain and brain stem beside the copy
+            that explains what memory reconsolidation actually does. */}
+        <Reveal delay={60}>
+          <div className="mt-14 grid items-center gap-8 rounded-3xl border border-teal-ink/12 bg-paper/55 p-7 backdrop-blur-sm sm:p-10 md:grid-cols-[auto_1fr] md:gap-12">
+            <BrainStem
+              className="mx-auto h-40 w-auto text-teal-ink sm:h-48"
+              strokeWidth={1.5}
+            />
+            <p className="text-lg leading-relaxed text-ink/85 sm:text-xl">
+              We use the Neuro Reset to unlink and relink the wiring in the
+              brain using memory reconsolidation. We target the level where
+              the memory lives to create effortless change.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-5 grid gap-5 md:grid-cols-3">
           {BEATS.map((b, i) => {
             const Motif = BEAT_MOTIFS[i]
             const isSignature = i === BEATS.length - 1
