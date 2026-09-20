@@ -22,26 +22,26 @@ const BEATS = [
 
 export function Method() {
   return (
-    <FramedSection id="method" frameClassName="bg-teal-ink text-cream">
+    <FramedSection id="method" frameClassName="bg-teal-lt text-teal-ink">
       {/* watercolor atmosphere */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.5]"
         style={{
           backgroundImage:
-            "radial-gradient(38rem 30rem at 82% 0%, color-mix(in oklab, var(--teal-lt) 40%, transparent), transparent 60%), radial-gradient(34rem 26rem at 4% 96%, color-mix(in oklab, var(--gold) 26%, transparent), transparent 60%)",
+            "radial-gradient(38rem 30rem at 82% 0%, color-mix(in oklab, var(--teal-ink) 22%, transparent), transparent 60%), radial-gradient(34rem 26rem at 4% 96%, color-mix(in oklab, var(--gold) 26%, transparent), transparent 60%)",
         }}
       />
 
       <Measure className="relative py-20 sm:py-28">
         <Reveal className="text-center">
-          <p className="kicker text-gold">The method</p>
+          <p className="kicker text-teal-ink">The method</p>
           {/* was a fourth, larger h2 clamp — section headlines are one size */}
-          <h2 className="headline mx-auto mt-5 max-w-3xl text-cream">
+          <h2 className="headline mx-auto mt-5 max-w-3xl text-teal-ink">
             Right effort.{" "}
-            <span className="text-gold-soft">Wrong direction.</span>
+            <span className="text-gold-deep">Wrong direction.</span>
           </h2>
-          <p className="lead mx-auto mt-6 max-w-2xl text-cream/80">
+          <p className="lead mx-auto mt-6 max-w-2xl text-ink/80">
             Pushing through fear never clears it. We work at the level where the
             memory actually lives, and rewire it at the source.
           </p>
@@ -53,16 +53,16 @@ export function Method() {
             const isSignature = i === BEATS.length - 1
             return (
               <Reveal key={b.k} delay={i * 100}>
-                <div className="h-full rounded-3xl border border-cream/12 bg-cream/[0.05] p-7 backdrop-blur-sm">
-                  <span className="text-gold-soft">
+                <div className="h-full rounded-3xl border border-teal-ink/12 bg-paper/55 p-7 backdrop-blur-sm">
+                  <span className="text-gold-deep">
                     {isSignature ? (
                       <ReinSynapse pulse className="h-8 w-auto" />
                     ) : (
                       <Motif className="size-7" strokeWidth={1.4} />
                     )}
                   </span>
-                  <p className="label mt-5 text-gold-soft">{b.k}</p>
-                  <p className="mt-4 leading-relaxed text-cream/85">{b.t}</p>
+                  <p className="label mt-5 text-gold-deep">{b.k}</p>
+                  <p className="mt-4 leading-relaxed text-ink/80">{b.t}</p>
                 </div>
               </Reveal>
             )
@@ -71,7 +71,7 @@ export function Method() {
 
         {/* Signature chain — Memories → … → Results */}
         <Reveal delay={120}>
-          <div className="mt-14 rounded-3xl border border-cream/12 bg-paper-2 p-8 text-center sm:p-10">
+          <div className="mt-14 rounded-3xl border border-teal-ink/10 bg-paper-2 p-8 text-center sm:p-10">
             <ReinSynapse
               pulse
               className="mx-auto h-9 w-auto text-teal"
