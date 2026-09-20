@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next"
-import { Geist_Mono, Plus_Jakarta_Sans } from "next/font/google"
+import { Fraunces, Geist_Mono, Libre_Caslon_Text } from "next/font/google"
 
 import "./globals.css"
 import { cn } from "@/lib/utils"
@@ -16,12 +16,22 @@ const fontMono = Geist_Mono({
   display: "swap",
 })
 
-// Everything else — headlines, body and UI all sit on one contemporary
-// grotesque; hierarchy comes from size, weight and tracking, not from a
-// second typeface.
-const fontHeading = Plus_Jakarta_Sans({
+// Body copy. Adobe Caslon itself is a Typekit-licensed face with no
+// self-hostable distribution; Libre Caslon Text is the open revival of the
+// same metal type, so it stands in for it here.
+const fontBody = Libre_Caslon_Text({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  weight: ["400", "700"],
+  variable: "--font-caslon",
+  display: "swap",
+})
+
+// Titles and display type. Ogg (Colophon Foundry) is likewise Adobe
+// Fonts-only; Fraunces is the closest open high-contrast editorial serif —
+// same ball terminals and warmth.
+const fontDisplay = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-ogg",
   display: "swap",
 })
 
@@ -72,7 +82,8 @@ export default function RootLayout({
       className={cn(
         "antialiased",
         "font-sans",
-        fontHeading.variable,
+        fontBody.variable,
+        fontDisplay.variable,
         fontMono.variable
       )}
     >
