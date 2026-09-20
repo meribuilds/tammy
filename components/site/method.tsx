@@ -101,7 +101,9 @@ export function Method() {
               className="mx-auto h-9 w-auto text-teal"
               strokeWidth={1.6}
             />
-            <p className="label mt-5 text-teal">Her signature chain</p>
+            <p className="label mt-5 text-teal">
+              Her signature Neuro Reset method
+            </p>
             <div className="reins mt-6" data-reins>
               {CHAIN.map((word, i) => (
                 <span key={word} className="contents">
