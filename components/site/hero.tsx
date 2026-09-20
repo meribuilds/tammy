@@ -61,8 +61,7 @@ export function Hero() {
 
               <Reveal delay={180}>
                 <p className="lead mx-auto mt-5 max-w-lg text-paper/90 sm:mt-6">
-                  Clear the fear where it lives, so you ride from calm, not
-                  force.
+                  Clear the fear where it lives so you can ride calmly.
                 </p>
               </Reveal>
 
