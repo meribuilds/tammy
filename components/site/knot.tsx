@@ -23,7 +23,7 @@ export function Knot() {
       <Measure className="py-20 sm:py-28">
         <Reveal className="text-center">
           <p className="pull-quote mx-auto max-w-2xl text-teal-ink">
-            This is not therapy. This is not a diet. This is neuroscience
+            This is not therapy. This is not a lesson. This is neuroscience
             working the way your brain actually works.
           </p>
         </Reveal>
