@@ -7,10 +7,11 @@ import { Horseshoe } from "@/components/site/motifs"
 
 const TRIED = [
   "Pushing through it",
-  "Groundwork drills",
+  "Groundwork",
   "“Confidence” clinics",
   "Calming supplements",
   "Quietly stepping back",
+  "New tack",
 ]
 
 export function Knot() {
