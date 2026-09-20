@@ -37,7 +37,7 @@ export function Knot() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+        <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           <Reveal className="max-w-xl">
             <p className="lead text-ink-soft">
               You used to feel free when you were riding, but now you freeze
