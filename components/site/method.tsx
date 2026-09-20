@@ -113,8 +113,8 @@ export function Method() {
               ))}
             </div>
             <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-ink-soft">
-              Change the memory and the whole chain changes with it: the
-              thoughts, the feelings, and what your body does at the mounting
+              Change the memory and the whole pattern changes: the thoughts,
+              the feelings, and the action you can take at the mounting
               block.
             </p>
           </div>
