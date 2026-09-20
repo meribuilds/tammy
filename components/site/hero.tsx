@@ -54,7 +54,7 @@ export function Hero() {
                 <h1 className="display mt-5 text-paper-2 sm:mt-6">
                   You&rsquo;re not a nervous rider.{" "}
                   <span className="text-gold-soft">
-                    Your brain is guarding a memory.
+                    Your brain is replaying a memory.
                   </span>
                 </h1>
               </Reveal>
