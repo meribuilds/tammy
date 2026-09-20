@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { BookCall, TailoredQuote } from "@/components/site/cta"
+import { BookCall, FreeGuide } from "@/components/site/cta"
 import { Frame, Measure } from "@/components/site/frame"
 import { Reveal } from "@/components/site/reveal"
 
@@ -69,7 +69,7 @@ export function Hero() {
               <Reveal delay={260}>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3.5">
                   <BookCall className="w-full justify-center sm:w-auto" />
-                  <TailoredQuote className="w-full justify-center border-paper/40 bg-paper/10 text-paper backdrop-blur-sm hover:border-paper/80 hover:bg-paper/20 sm:w-auto" />
+                  <FreeGuide className="w-full justify-center border-paper/40 bg-paper/10 text-paper backdrop-blur-sm hover:border-paper/80 hover:bg-paper/20 sm:w-auto" />
                 </div>
               </Reveal>
 

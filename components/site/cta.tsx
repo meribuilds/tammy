@@ -1,7 +1,11 @@
-import { ArrowUpRight, Phone } from "lucide-react"
+import { ArrowUpRight, Download } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { BOOK_URL } from "@/lib/site"
+
+// TODO(tammy): point this at the actual guide (a hosted PDF or landing page)
+// once it exists. Falls back to the booking link so the button never 404s.
+const FREE_GUIDE_URL = BOOK_URL
 
 /**
  * Primary conversion: "Book a call" — the single job of the page.
@@ -40,13 +44,13 @@ export function BookCall({
 }
 
 /**
- * Secondary: "Call for a tailored quote" — keeps pricing off the page by design,
- * matches her existing language.
+ * Secondary: "Download free guide" — a lower-commitment lead magnet ask,
+ * paired next to BookCall wherever it appears.
  */
-export function TailoredQuote({ className }: { className?: string }) {
+export function FreeGuide({ className }: { className?: string }) {
   return (
     <a
-      href={BOOK_URL}
+      href={FREE_GUIDE_URL}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
@@ -57,12 +61,12 @@ export function TailoredQuote({ className }: { className?: string }) {
         className
       )}
     >
-      <Phone
+      <Download
         aria-hidden
-        className="size-4 transition-transform duration-200 group-hover:-rotate-12"
+        className="size-4 transition-transform duration-200 group-hover:translate-y-0.5"
       />
-      Call for a tailored quote
-      <span className="sr-only"> (opens Tammy&rsquo;s calendar in a new tab)</span>
+      Download free guide
+      <span className="sr-only"> (opens in a new tab)</span>
     </a>
   )
 }
