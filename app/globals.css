@@ -11,18 +11,17 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Type roles — one sans carries display, UI and body; mono handles labels.
-     These point at the raw next/font variables (--font-jakarta, --font-geist-mono)
-     rather than at themselves: `--font-sans: var(--font-sans)` resolves against
-     the same :root it is declared on, which is circular and therefore invalid.
+  /* Type roles — Caslon (body/UI) + Ogg (display/headlines); mono handles
+     labels. These point at the raw next/font variables (--font-caslon,
+     --font-ogg, --font-geist-mono) rather than at themselves:
+     `--font-sans: var(--font-sans)` resolves against the same :root it is
+     declared on, which is circular and therefore invalid.
      Fallback stacks are mandatory here — without one, a font that fails to load
      leaves `font-family` invalid and the page drops to the UA serif. */
   --font-sans:
-    var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    sans-serif;
+    var(--font-caslon), Georgia, "Times New Roman", serif;
   --font-display:
-    var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    sans-serif;
+    var(--font-ogg), Georgia, "Times New Roman", serif;
   --font-mono:
     var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
