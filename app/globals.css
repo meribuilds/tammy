@@ -82,15 +82,19 @@
   --teal: #1c6e79;
   --teal-lt: #74bdcb;
   --teal-ink: #123a40;
-  --gold: #b0844a;
-  --gold-soft: #c79b5f;
+  /* Gold family walked from a muted brown-gold to the logo's amber hue
+     (~32°, between its brain-orange and lightning-yellow) — same lightness
+     and near-same saturation steps as before, so every contrast pairing
+     below still holds, just warmer. */
+  --gold: #c58234;
+  --gold-soft: #d9984d;
   /* Gold reads at 2.9:1 on paper — fine as a fill or a rule, a WCAG failure as
      text. This is the same hue walked down to 4.6:1 for type on light ground.
      --gold / --gold-soft stay the on-dark and non-text golds. */
-  --gold-ink: #8a6431;
+  --gold-ink: #8e5a1f;
   /* Same hue walked down further, to ~5:1, for gold text/icons on --teal-lt —
      gold-ink's 4.6:1 is against paper, not this lighter teal. */
-  --gold-deep: #4f3b21;
+  --gold-deep: #593a18;
   --line: #e2dacb;
 
   /* shadcn semantic mapping */
