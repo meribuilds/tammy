@@ -4,7 +4,7 @@
 
 /*
   Building Brave Riders — Tammy Magnuson
-  Editorial-warm identity. Palette from the poster: deep teal + gold + cream.
+  Editorial-warm identity. Palette: cream + chocolate + teal, with a coral pop.
   Light-only by design (the brand is warm paper, not a dark app).
 */
 
@@ -25,7 +25,7 @@
   --font-mono:
     var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* brand color utilities (bg-teal, text-gold, …) */
+  /* brand color utilities (bg-teal, text-coral, …) */
   --color-paper: var(--paper);
   --color-paper-2: var(--paper-2);
   --color-cream: var(--cream);
@@ -34,10 +34,11 @@
   --color-teal: var(--teal);
   --color-teal-lt: var(--teal-lt);
   --color-teal-ink: var(--teal-ink);
-  --color-gold: var(--gold);
-  --color-gold-soft: var(--gold-soft);
-  --color-gold-ink: var(--gold-ink);
-  --color-gold-deep: var(--gold-deep);
+  --color-coral: var(--coral);
+  --color-coral-soft: var(--coral-soft);
+  --color-coral-ink: var(--coral-ink);
+  --color-coral-deep: var(--coral-deep);
+  --color-ink-faint: var(--ink-faint);
   --color-line: var(--line);
 
   /* shadcn semantic tokens */
@@ -72,29 +73,28 @@
 }
 
 :root {
-  /* raw brand palette (from poster) */
-  --paper: #f3eee3;
-  --paper-2: #fbf8f1;
-  --cream: #ece5d6;
-  --ink: #241f1a;
-  --ink-soft: #5b5348;
-  --teal: #1c6e79;
-  --teal-lt: #74bdcb;
-  --teal-ink: #123a40;
-  /* Gold family walked from a muted brown-gold to the logo's amber hue
-     (~32°, between its brain-orange and lightning-yellow) — same lightness
-     and near-same saturation steps as before, so every contrast pairing
-     below still holds, just warmer. */
-  --gold: #c58234;
-  --gold-soft: #d9984d;
-  /* Gold reads at 2.9:1 on paper — fine as a fill or a rule, a WCAG failure as
-     text. This is the same hue walked down to 4.6:1 for type on light ground.
-     --gold / --gold-soft stay the on-dark and non-text golds. */
-  --gold-ink: #8e5a1f;
-  /* Same hue walked down further, to ~5:1, for gold text/icons on --teal-lt —
-     gold-ink's 4.6:1 is against paper, not this lighter teal. */
-  --gold-deep: #593a18;
-  --line: #e2dacb;
+  /* raw brand palette */
+  --paper: #fffaf1; /* base cream */
+  --paper-2: #fff2db; /* yellow background: cards, raised surfaces */
+  --cream: #fff2db;
+  --ink: #3d261c; /* chocolate */
+  --ink-soft: #817067;
+  /* Light text reads at 1.8:1 on paper: placeholders, rules and decoration
+     only, never copy someone has to read. */
+  --ink-faint: #c5bab1;
+  --teal: #437f8b;
+  --teal-lt: #8bb8b7;
+  /* Dark headline/body ink. Chocolate carries it: the palette has no deep
+     teal, and chocolate reads 13.5:1 on paper and 6.5:1 on --teal-lt. */
+  --teal-ink: #3d261c;
+  --coral: #f47068; /* coral pop */
+  --coral-soft: #f68c83;
+  /* Coral reads at 2.7:1 on paper: fine as a fill or a rule, a WCAG failure as
+     text. Coral mixed toward chocolate to 5:1 for type on light ground. */
+  --coral-ink: #ab524a;
+  /* Walked further toward chocolate, to ~5:1 on --teal-lt. */
+  --coral-deep: #62352b;
+  --line: #dfd7ce; /* light text washed into paper */
 
   /* shadcn semantic mapping */
   --background: var(--paper);
@@ -104,13 +104,13 @@
   --popover: var(--paper-2);
   --popover-foreground: var(--ink);
   --primary: var(--teal);
-  --primary-foreground: #fbf8f1;
+  --primary-foreground: #fffaf1;
   --secondary: var(--cream);
   --secondary-foreground: var(--teal-ink);
   --muted: var(--cream);
   --muted-foreground: var(--ink-soft);
-  --accent: var(--gold);
-  --accent-foreground: #241f1a;
+  --accent: var(--coral);
+  --accent-foreground: #3d261c;
   --destructive: oklch(0.577 0.245 27.325);
   --border: var(--line);
   --input: var(--line);
@@ -134,7 +134,7 @@
     /* faint paper wash so cream never reads flat */
     background-image:
       radial-gradient(52rem 40rem at 8% -8%, color-mix(in oklab, var(--teal) 8%, transparent), transparent 60%),
-      radial-gradient(46rem 34rem at 108% 4%, color-mix(in oklab, var(--gold) 9%, transparent), transparent 62%);
+      radial-gradient(46rem 34rem at 108% 4%, color-mix(in oklab, var(--coral) 9%, transparent), transparent 62%);
     text-rendering: optimizeLegibility;
     position: relative;
     overflow-x: clip;
@@ -158,7 +158,7 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   ::selection {
-    background: color-mix(in oklab, var(--gold) 32%, transparent);
+    background: color-mix(in oklab, var(--coral) 32%, transparent);
     color: var(--ink);
   }
   /* `* { outline-ring/50 }` only sets the outline *colour* — with no width there
@@ -320,7 +320,7 @@
     margin: 7px 0;
     background: repeating-linear-gradient(
       180deg,
-      var(--gold) 0 7px,
+      var(--coral) 0 7px,
       transparent 7px 13px
     );
   }
@@ -331,8 +331,8 @@
     bottom: -3px;
     width: 7px;
     height: 7px;
-    border-right: 2px solid var(--gold);
-    border-bottom: 2px solid var(--gold);
+    border-right: 2px solid var(--coral);
+    border-bottom: 2px solid var(--coral);
     transform: translateX(-50%) rotate(45deg);
   }
   /* Desktop: the rein runs left → right across the chain.
@@ -353,7 +353,7 @@
       margin: 0 clamp(8px, 1.3vw, 20px);
       background: repeating-linear-gradient(
         90deg,
-        var(--gold) 0 8px,
+        var(--coral) 0 8px,
         transparent 8px 14px
       );
     }
@@ -425,7 +425,7 @@
   transform-origin: center;
 }
 
-/* motif badge — settles gold on hover of its card */
+/* motif badge — settles coral on hover of its card */
 .motif-badge {
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
 }

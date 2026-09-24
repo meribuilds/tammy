@@ -45,7 +45,7 @@ export function Hero() {
           <Measure>
             <div className="mx-auto max-w-3xl text-center">
               <Reveal>
-                <p className="kicker text-gold-soft">Neuro Reset method</p>
+                <p className="kicker text-coral-soft">Neuro Reset method</p>
               </Reveal>
 
               <Reveal delay={90}>
@@ -53,7 +53,7 @@ export function Hero() {
                     same oversized 2.3rem block — .display leans on vw sooner */}
                 <h1 className="display mt-5 text-paper-2 sm:mt-6">
                   You&rsquo;re not a nervous rider.{" "}
-                  <span className="text-gold-soft">
+                  <span className="text-coral-soft">
                     Your brain is replaying a memory.
                   </span>
                 </h1>
@@ -76,9 +76,9 @@ export function Hero() {
                 {/* was hidden below 640px, which dropped the page's only trust
                     signal on the devices most of this traffic arrives on */}
                 <p className="label mt-8 text-paper/80">
-                  Science-backed<span className="text-gold-soft"> · </span>
+                  Science-backed<span className="text-coral-soft"> · </span>
                   Soul-driven
-                  <span className="text-gold-soft"> · </span>Results-focused
+                  <span className="text-coral-soft"> · </span>Results-focused
                 </p>
               </Reveal>
             </div>

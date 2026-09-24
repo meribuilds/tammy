@@ -90,7 +90,7 @@ export function Knot() {
                 <Quote
                   aria-hidden
                   strokeWidth={1.4}
-                  className="absolute top-6 right-7 size-9 text-gold/35"
+                  className="absolute top-6 right-7 size-9 text-coral/35"
                 />
                 <blockquote className="pull-quote relative text-teal-ink">
                   Everyone keeps telling me to just get back on. I try, and my

@@ -6,13 +6,13 @@ import { Horseshoe } from "@/components/site/motifs"
 export function CtaBand() {
   return (
     <FramedSection frameClassName="bg-teal-lt text-teal-ink">
-      {/* gold halo above, cool glow below — composed, not blotchy */}
+      {/* coral halo above, cool glow below — composed, not blotchy */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(44rem 26rem at 50% -12%, color-mix(in oklab, var(--gold) 26%, transparent), transparent 60%), radial-gradient(40rem 30rem at 100% 118%, color-mix(in oklab, var(--teal-ink) 22%, transparent), transparent 62%)",
+            "radial-gradient(44rem 26rem at 50% -12%, color-mix(in oklab, var(--coral) 26%, transparent), transparent 60%), radial-gradient(40rem 30rem at 100% 118%, color-mix(in oklab, var(--teal-ink) 22%, transparent), transparent 62%)",
         }}
       />
       {/* ghost motif for depth */}
@@ -21,10 +21,10 @@ export function CtaBand() {
         strokeWidth={0.5}
         className="pointer-events-none absolute top-1/2 left-1/2 size-[34rem] -translate-x-1/2 -translate-y-1/2 text-teal-ink opacity-[0.05]"
       />
-      {/* gold hairline caps the section off from the paper above */}
+      {/* coral hairline caps the section off from the paper above */}
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/45 to-transparent"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-coral/45 to-transparent"
       />
 
       {/* narrower than the 6xl measure the other bands share: it's a single
@@ -39,7 +39,7 @@ export function CtaBand() {
           {/* the page's closing statement was a <p> styled to look like a
               headline — it never appeared in the document outline */}
           <h2 className="display mt-7 text-teal-ink">
-            Let&rsquo;s build your <span className="text-gold-deep">brave</span>
+            Let&rsquo;s build your <span className="text-coral-deep">brave</span>
             .
           </h2>
 
@@ -54,8 +54,8 @@ export function CtaBand() {
           </div>
 
           <p className="label-xs mt-8 text-ink/75">
-            Private<span className="text-gold-deep"> · </span>By quote
-            <span className="text-gold-deep"> · </span>No pressure
+            Private<span className="text-coral-deep"> · </span>By quote
+            <span className="text-coral-deep"> · </span>No pressure
           </p>
         </Reveal>
       </Measure>

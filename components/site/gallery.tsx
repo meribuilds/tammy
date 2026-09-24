@@ -57,7 +57,7 @@ export function Gallery() {
           /* the component writes --w inline, so the responsive sizes have to
              win on !important — cards must shrink or they overrun small screens */
           containerClassName="[--w:8.5rem]! sm:[--w:11rem]! lg:[--w:14rem]!"
-          cardClassName="shadow-[0_24px_50px_-30px_rgba(18,58,64,0.8)]"
+          cardClassName="shadow-[0_24px_50px_-30px_rgba(61,38,28,0.8)]"
           imageSizes="(min-width: 1024px) 224px, (min-width: 640px) 176px, 136px"
           /* props spread over the component's own style, so every value has to
              be restated here.

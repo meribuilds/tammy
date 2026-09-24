@@ -40,13 +40,13 @@ export function Proof() {
                   key={p}
                   className="group flex items-start gap-4 border-t border-line pt-5"
                 >
-                  <span className="motif-badge flex size-11 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-gold/[0.06] text-gold-ink group-hover:border-gold/60 group-hover:bg-gold/10">
+                  <span className="motif-badge flex size-11 shrink-0 items-center justify-center rounded-full border border-coral/30 bg-coral/[0.06] text-coral-ink group-hover:border-coral/60 group-hover:bg-coral/10">
                     <Motif className="size-5" />
                   </span>
                   <div className="pt-0.5">
-                    {/* --gold failed AA at this size on paper; --gold-ink is the
+                    {/* --coral failed AA at this size on paper; --coral-ink is the
                         same hue at 4.6:1 */}
-                    <span className="label-xs text-gold-ink tabular-nums">
+                    <span className="label-xs text-coral-ink tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="mt-1 block text-lg leading-snug font-medium text-teal-ink">
