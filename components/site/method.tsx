@@ -31,7 +31,7 @@ export function Method() {
         className="pointer-events-none absolute inset-0 opacity-[0.5]"
         style={{
           backgroundImage:
-            "radial-gradient(38rem 30rem at 82% 0%, color-mix(in oklab, var(--teal-ink) 22%, transparent), transparent 60%), radial-gradient(34rem 26rem at 4% 96%, color-mix(in oklab, var(--gold) 26%, transparent), transparent 60%)",
+            "radial-gradient(38rem 30rem at 82% 0%, color-mix(in oklab, var(--teal-ink) 22%, transparent), transparent 60%), radial-gradient(34rem 26rem at 4% 96%, color-mix(in oklab, var(--coral) 26%, transparent), transparent 60%)",
         }}
       />
 
@@ -41,7 +41,7 @@ export function Method() {
           {/* was a fourth, larger h2 clamp — section headlines are one size */}
           <h2 className="headline mx-auto mt-5 max-w-3xl text-teal-ink">
             Right effort.{" "}
-            <span className="text-gold-deep">Wrong direction.</span>
+            <span className="text-coral-deep">Wrong direction.</span>
           </h2>
           <p className="lead mx-auto mt-6 max-w-2xl text-ink/80">
             Pushing through fear never clears it. We work at the level where the
@@ -78,14 +78,14 @@ export function Method() {
             return (
               <Reveal key={b.k} delay={i * 100}>
                 <div className="h-full rounded-3xl border border-teal-ink/12 bg-paper/55 p-7 backdrop-blur-sm">
-                  <span className="text-gold-deep">
+                  <span className="text-coral-deep">
                     {isSignature ? (
                       <ReinSynapse pulse className="h-8 w-auto" />
                     ) : (
                       <Motif className="size-7" strokeWidth={1.4} />
                     )}
                   </span>
-                  <p className="label mt-5 text-gold-deep">{b.k}</p>
+                  <p className="label mt-5 text-coral-deep">{b.k}</p>
                   <p className="mt-4 leading-relaxed text-ink/80">{b.t}</p>
                 </div>
               </Reveal>

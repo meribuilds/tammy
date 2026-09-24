@@ -48,20 +48,20 @@ export function Reviews() {
             <Quote
               aria-hidden
               strokeWidth={1.4}
-              className="size-8 text-gold/35"
+              className="size-8 text-coral/35"
             />
             <blockquote className="relative mt-4 text-lg leading-relaxed text-teal-ink sm:text-xl">
               {review.quote}
             </blockquote>
 
-            <div className="mt-5 flex gap-1 text-gold" aria-hidden>
+            <div className="mt-5 flex gap-1 text-coral" aria-hidden>
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="size-4 fill-current" />
               ))}
             </div>
 
             <div className="mt-6 flex items-center gap-3 border-t border-line pt-6">
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-teal-ink text-sm font-semibold text-gold-soft">
+              <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-teal-ink text-sm font-semibold text-coral-soft">
                 {review.author.charAt(0)}
               </span>
               <div>

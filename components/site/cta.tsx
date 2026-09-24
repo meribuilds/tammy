@@ -9,7 +9,7 @@ const FREE_GUIDE_URL = BOOK_URL
 
 /**
  * Primary conversion: "Book a call" — the single job of the page.
- * Gold fill, generous target, a light sheen glint sweeps across on hover, and a
+ * Coral fill, generous target, a light sheen glint sweeps across on hover, and a
  * subtle lift. Links to Tammy's Wix calendar.
  */
 export function BookCall({
@@ -26,9 +26,9 @@ export function BookCall({
       rel="noopener noreferrer"
       className={cn(
         "sheen group inline-flex items-center justify-center gap-2 rounded-full",
-        "bg-gold px-7 py-3.5 font-medium text-ink",
-        "shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_8px_24px_-10px_rgba(176,132,74,0.9)]",
-        "transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-soft hover:shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_16px_30px_-12px_rgba(176,132,74,0.95)]",
+        "bg-coral px-7 py-3.5 font-medium text-ink",
+        "shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_8px_24px_-10px_rgba(244,112,104,0.9)]",
+        "transition-all duration-200 hover:-translate-y-0.5 hover:bg-coral-soft hover:shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_16px_30px_-12px_rgba(244,112,104,0.95)]",
         "focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none",
         className
       )}
